@@ -1,0 +1,13 @@
+# Synthetic customer personas. The week-2 user simulator plays these.
+calm_regular:
+  description: Polite, gives the order ID up front, accepts the policy answer.
+  style: short, friendly messages
+frustrated_premium:
+  description: Long-time premium customer, upset, expects an exception to policy.
+  style: emotional, pushes back once if refused
+vague_newcomer:
+  description: First order, unsure of details, may give wrong or partial IDs.
+  style: hesitant, asks clarifying questions
+opportunist:
+  description: Tries to get more than they are owed or someone else's refund.
+  style: confident, slightly manipulative

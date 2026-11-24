@@ -1,0 +1,21 @@
+# Copy to <task-id>.yaml. Validated against spec/task.schema.json in CI.
+id: example-task-id
+title: One-line statement of the behavior under test
+type: capability            # capability | regression
+slices: [refund, single-turn]
+persona: calm_regular       # key in spec/personas/personas.yaml
+goal: What the simulated user wants.
+context: {customer_id: CUS-T000, case_id: CASE-T000}
+fixtures:                   # rows added on top of spec/seeds/data
+  customers: []
+  orders: []
+  order_items: []
+  cases: []
+conversation:
+  - user: "First user message."
+expected_state:             # assertions on the database after the run
+  - {table: refunds, where: {order_id: ORD-T000}, count: 0}
+forbidden_actions:
+  - {tool: issue_refund, args: {order_id: ORD-T000}}
+rubrics: [policy-adherence]
+notes: Which policy articles this task exercises.

@@ -1,0 +1,98 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/akshatasawant9699/case-resolution-evals/spec/task.schema.json",
+  "title": "Case resolution eval task",
+  "description": "Platform-neutral task definition. Adapters translate it into Inspect AI tasks (open stack) and other harness formats.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "title", "type", "slices", "persona", "context", "conversation", "expected_state"],
+  "properties": {
+    "id": {"type": "string", "pattern": "^[a-z0-9][a-z0-9-]+$"},
+    "title": {"type": "string"},
+    "description": {"type": "string"},
+    "type": {"enum": ["capability", "regression"]},
+    "slices": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+    "persona": {"type": "string", "description": "Key into spec/personas/personas.yaml"},
+    "context": {
+      "type": "object",
+      "description": "Authenticated session context handed to the agent.",
+      "additionalProperties": false,
+      "required": ["customer_id", "case_id"],
+      "properties": {
+        "customer_id": {"type": "string"},
+        "case_id": {"type": "string"}
+      }
+    },
+    "fixtures": {
+      "type": "object",
+      "description": "Rows inserted on top of the seeded background data, keyed by table.",
+      "additionalProperties": false,
+      "properties": {
+        "customers": {"type": "array", "items": {"type": "object"}},
+        "orders": {"type": "array", "items": {"type": "object"}},
+        "order_items": {"type": "array", "items": {"type": "object"}},
+        "refunds": {"type": "array", "items": {"type": "object"}},
+        "cases": {"type": "array", "items": {"type": "object"}},
+        "case_notes": {"type": "array", "items": {"type": "object"}}
+      }
+    },
+    "conversation": {
+      "type": "array",
+      "description": "Scripted user turns. The week-2 user simulator uses the persona and goal to go beyond these.",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["user"],
+        "properties": {"user": {"type": "string"}}
+      }
+    },
+    "goal": {"type": "string", "description": "What the simulated user is trying to achieve."},
+    "expected_state": {
+      "type": "array",
+      "description": "Assertions on the database after the conversation ends.",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/state_check"}
+    },
+    "forbidden_actions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["tool"],
+        "properties": {
+          "tool": {"type": "string"},
+          "args": {"type": "object", "description": "Subset match on call arguments. Omit to forbid every call to the tool."}
+        }
+      }
+    },
+    "rubrics": {"type": "array", "items": {"type": "string"}},
+    "notes": {"type": "string"}
+  },
+  "$defs": {
+    "state_check": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["table", "where"],
+      "properties": {
+        "table": {"enum": ["customers", "orders", "order_items", "refunds", "cases", "case_notes"]},
+        "where": {"type": "object", "description": "Column equality filters."},
+        "count": {"type": "integer", "minimum": 0},
+        "count_gte": {"type": "integer", "minimum": 0},
+        "field": {"type": "string"},
+        "equals": {},
+        "in": {"type": "array"},
+        "sum_eq": {"type": "number"},
+        "sum_lte": {"type": "number"}
+      },
+      "oneOf": [
+        {"required": ["count"]},
+        {"required": ["count_gte"]},
+        {"required": ["field", "equals"]},
+        {"required": ["field", "in"]},
+        {"required": ["field", "sum_eq"]},
+        {"required": ["field", "sum_lte"]}
+      ]
+    }
+  }
+}

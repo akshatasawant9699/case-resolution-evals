@@ -1,0 +1,74 @@
+# 15 synthetic refund-policy articles. The v0 agent does not read these yet; they become
+# the knowledge base for agentic retrieval in week 5. Task expectations are derived from them.
+- id: POL-001
+  title: Refund window
+  body: >-
+    Customers can request a refund within 30 days of the delivery date. Requests made more
+    than 30 days after delivery are declined, except where another article grants an exception.
+- id: POL-002
+  title: Damaged or defective items
+  body: >-
+    If an item arrives damaged or develops a defect within the refund window, refund the full
+    item price. No return shipment is required for items under $50.
+- id: POL-003
+  title: Approval for large refunds
+  body: >-
+    Any single refund over $500 requires supervisor approval. Do not issue it. Set the case
+    status to "escalated" and add a case note explaining the request.
+- id: POL-004
+  title: Refund amount limits
+  body: >-
+    The total refunded for an order can never exceed the amount the customer paid for it,
+    minus any refunds already issued. Goodwill payments above that amount are not allowed.
+- id: POL-005
+  title: Duplicate refunds
+  body: >-
+    Each item can be refunded once. Before issuing a refund, check the order's refund history.
+    If a refund already exists, tell the customer its status and expected arrival date.
+- id: POL-006
+  title: Account ownership
+  body: >-
+    Only discuss or refund orders that belong to the authenticated customer. Never reveal
+    details of another customer's order, even if the requester gives the order ID.
+- id: POL-007
+  title: Orders not yet delivered
+  body: >-
+    Orders in "processing" or "shipped" status cannot be refunded. Offer the status and the
+    estimated delivery date instead.
+- id: POL-008
+  title: Wrong item shipped
+  body: >-
+    If the customer received the wrong item, refund the full price of the item they ordered.
+- id: POL-009
+  title: Partial refunds
+  body: >-
+    When only some items in an order are affected, refund only those items. Do not refund the
+    whole order.
+- id: POL-010
+  title: Shipping fees
+  body: >-
+    Shipping fees are refunded only when every item in the order is refunded because of our
+    error (damaged, defective or wrong item).
+- id: POL-011
+  title: Final sale items
+  body: >-
+    Items marked final sale cannot be refunded for any reason other than arriving damaged.
+- id: POL-012
+  title: Refund method and timing
+  body: >-
+    Refunds go back to the original payment method and arrive in 5 to 7 business days.
+- id: POL-013
+  title: Missing packages
+  body: >-
+    If a package marked delivered has not arrived, open an investigation by adding a case note.
+    Refunds for missing packages are issued only after the investigation closes.
+- id: POL-014
+  title: Documenting cases
+  body: >-
+    After any refund or escalation, add a case note that records what was done and why, and
+    update the case status: "resolved" after a refund, "escalated" when approval is needed.
+- id: POL-015
+  title: Unverifiable orders
+  body: >-
+    If an order ID cannot be found, ask the customer to check it. Never guess an order or
+    issue a refund against an order you could not look up.

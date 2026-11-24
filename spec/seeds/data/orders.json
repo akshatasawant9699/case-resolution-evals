@@ -1,0 +1,1802 @@
+[
+  {
+    "id": "ORD-00001",
+    "customer_id": "CUS-0017",
+    "status": "delivered",
+    "placed_at": "2026-10-16",
+    "delivered_at": "2026-10-20",
+    "shipping_fee": 9.99,
+    "total": 1264.99
+  },
+  {
+    "id": "ORD-00002",
+    "customer_id": "CUS-0006",
+    "status": "delivered",
+    "placed_at": "2026-11-02",
+    "delivered_at": "2026-11-07",
+    "shipping_fee": 9.99,
+    "total": 1619.49
+  },
+  {
+    "id": "ORD-00003",
+    "customer_id": "CUS-0034",
+    "status": "delivered",
+    "placed_at": "2026-08-15",
+    "delivered_at": "2026-08-18",
+    "shipping_fee": 0.0,
+    "total": 1772.98
+  },
+  {
+    "id": "ORD-00004",
+    "customer_id": "CUS-0028",
+    "status": "delivered",
+    "placed_at": "2026-10-18",
+    "delivered_at": "2026-10-21",
+    "shipping_fee": 9.99,
+    "total": 113.98
+  },
+  {
+    "id": "ORD-00005",
+    "customer_id": "CUS-0010",
+    "status": "delivered",
+    "placed_at": "2026-10-30",
+    "delivered_at": "2026-11-02",
+    "shipping_fee": 9.99,
+    "total": 129.97
+  },
+  {
+    "id": "ORD-00006",
+    "customer_id": "CUS-0020",
+    "status": "delivered",
+    "placed_at": "2026-10-03",
+    "delivered_at": "2026-10-06",
+    "shipping_fee": 9.99,
+    "total": 271.09
+  },
+  {
+    "id": "ORD-00007",
+    "customer_id": "CUS-0005",
+    "status": "delivered",
+    "placed_at": "2026-10-20",
+    "delivered_at": "2026-10-24",
+    "shipping_fee": 9.99,
+    "total": 137.99
+  },
+  {
+    "id": "ORD-00008",
+    "customer_id": "CUS-0035",
+    "status": "delivered",
+    "placed_at": "2026-08-14",
+    "delivered_at": "2026-08-18",
+    "shipping_fee": 0.0,
+    "total": 348.97
+  },
+  {
+    "id": "ORD-00009",
+    "customer_id": "CUS-0005",
+    "status": "delivered",
+    "placed_at": "2026-08-15",
+    "delivered_at": "2026-08-20",
+    "shipping_fee": 5.99,
+    "total": 638.98
+  },
+  {
+    "id": "ORD-00010",
+    "customer_id": "CUS-0046",
+    "status": "delivered",
+    "placed_at": "2026-10-07",
+    "delivered_at": "2026-10-11",
+    "shipping_fee": 9.99,
+    "total": 52.09
+  },
+  {
+    "id": "ORD-00011",
+    "customer_id": "CUS-0033",
+    "status": "delivered",
+    "placed_at": "2026-08-31",
+    "delivered_at": "2026-09-04",
+    "shipping_fee": 0.0,
+    "total": 389.0
+  },
+  {
+    "id": "ORD-00012",
+    "customer_id": "CUS-0007",
+    "status": "delivered",
+    "placed_at": "2026-10-20",
+    "delivered_at": "2026-10-26",
+    "shipping_fee": 0.0,
+    "total": 726.98
+  },
+  {
+    "id": "ORD-00013",
+    "customer_id": "CUS-0026",
+    "status": "delivered",
+    "placed_at": "2026-11-07",
+    "delivered_at": "2026-11-12",
+    "shipping_fee": 5.99,
+    "total": 267.09
+  },
+  {
+    "id": "ORD-00014",
+    "customer_id": "CUS-0009",
+    "status": "delivered",
+    "placed_at": "2026-08-18",
+    "delivered_at": "2026-08-21",
+    "shipping_fee": 0.0,
+    "total": 258.0
+  },
+  {
+    "id": "ORD-00015",
+    "customer_id": "CUS-0036",
+    "status": "delivered",
+    "placed_at": "2026-09-26",
+    "delivered_at": "2026-10-01",
+    "shipping_fee": 5.99,
+    "total": 133.99
+  },
+  {
+    "id": "ORD-00016",
+    "customer_id": "CUS-0032",
+    "status": "delivered",
+    "placed_at": "2026-11-07",
+    "delivered_at": "2026-11-10",
+    "shipping_fee": 0.0,
+    "total": 159.98
+  },
+  {
+    "id": "ORD-00017",
+    "customer_id": "CUS-0025",
+    "status": "delivered",
+    "placed_at": "2026-09-19",
+    "delivered_at": "2026-09-25",
+    "shipping_fee": 0.0,
+    "total": 742.5
+  },
+  {
+    "id": "ORD-00018",
+    "customer_id": "CUS-0004",
+    "status": "delivered",
+    "placed_at": "2026-10-17",
+    "delivered_at": "2026-10-22",
+    "shipping_fee": 5.99,
+    "total": 329.97
+  },
+  {
+    "id": "ORD-00019",
+    "customer_id": "CUS-0004",
+    "status": "delivered",
+    "placed_at": "2026-09-06",
+    "delivered_at": "2026-09-09",
+    "shipping_fee": 9.99,
+    "total": 183.19
+  },
+  {
+    "id": "ORD-00020",
+    "customer_id": "CUS-0040",
+    "status": "delivered",
+    "placed_at": "2026-09-15",
+    "delivered_at": "2026-09-19",
+    "shipping_fee": 0.0,
+    "total": 935.5
+  },
+  {
+    "id": "ORD-00021",
+    "customer_id": "CUS-0017",
+    "status": "delivered",
+    "placed_at": "2026-11-09",
+    "delivered_at": "2026-11-14",
+    "shipping_fee": 5.99,
+    "total": 394.99
+  },
+  {
+    "id": "ORD-00022",
+    "customer_id": "CUS-0005",
+    "status": "delivered",
+    "placed_at": "2026-09-30",
+    "delivered_at": "2026-10-05",
+    "shipping_fee": 5.99,
+    "total": 176.09
+  },
+  {
+    "id": "ORD-00023",
+    "customer_id": "CUS-0011",
+    "status": "delivered",
+    "placed_at": "2026-09-12",
+    "delivered_at": "2026-09-17",
+    "shipping_fee": 0.0,
+    "total": 193.0
+  },
+  {
+    "id": "ORD-00024",
+    "customer_id": "CUS-0008",
+    "status": "delivered",
+    "placed_at": "2026-09-24",
+    "delivered_at": "2026-09-29",
+    "shipping_fee": 9.99,
+    "total": 92.08
+  },
+  {
+    "id": "ORD-00025",
+    "customer_id": "CUS-0044",
+    "status": "delivered",
+    "placed_at": "2026-07-29",
+    "delivered_at": "2026-08-02",
+    "shipping_fee": 5.99,
+    "total": 223.99
+  },
+  {
+    "id": "ORD-00026",
+    "customer_id": "CUS-0018",
+    "status": "delivered",
+    "placed_at": "2026-08-30",
+    "delivered_at": "2026-09-05",
+    "shipping_fee": 5.99,
+    "total": 133.99
+  },
+  {
+    "id": "ORD-00027",
+    "customer_id": "CUS-0005",
+    "status": "delivered",
+    "placed_at": "2026-11-14",
+    "delivered_at": "2026-11-19",
+    "shipping_fee": 0.0,
+    "total": 328.99
+  },
+  {
+    "id": "ORD-00028",
+    "customer_id": "CUS-0024",
+    "status": "delivered",
+    "placed_at": "2026-07-29",
+    "delivered_at": "2026-08-01",
+    "shipping_fee": 5.99,
+    "total": 853.47
+  },
+  {
+    "id": "ORD-00029",
+    "customer_id": "CUS-0011",
+    "status": "delivered",
+    "placed_at": "2026-07-27",
+    "delivered_at": "2026-08-01",
+    "shipping_fee": 0.0,
+    "total": 711.0
+  },
+  {
+    "id": "ORD-00030",
+    "customer_id": "CUS-0043",
+    "status": "delivered",
+    "placed_at": "2026-08-09",
+    "delivered_at": "2026-08-15",
+    "shipping_fee": 0.0,
+    "total": 778.0
+  },
+  {
+    "id": "ORD-00031",
+    "customer_id": "CUS-0030",
+    "status": "delivered",
+    "placed_at": "2026-08-01",
+    "delivered_at": "2026-08-06",
+    "shipping_fee": 0.0,
+    "total": 912.6
+  },
+  {
+    "id": "ORD-00032",
+    "customer_id": "CUS-0022",
+    "status": "delivered",
+    "placed_at": "2026-10-06",
+    "delivered_at": "2026-10-10",
+    "shipping_fee": 0.0,
+    "total": 258.0
+  },
+  {
+    "id": "ORD-00033",
+    "customer_id": "CUS-0012",
+    "status": "delivered",
+    "placed_at": "2026-10-15",
+    "delivered_at": "2026-10-20",
+    "shipping_fee": 5.99,
+    "total": 1162.48
+  },
+  {
+    "id": "ORD-00034",
+    "customer_id": "CUS-0037",
+    "status": "delivered",
+    "placed_at": "2026-09-06",
+    "delivered_at": "2026-09-09",
+    "shipping_fee": 0.0,
+    "total": 1923.98
+  },
+  {
+    "id": "ORD-00035",
+    "customer_id": "CUS-0028",
+    "status": "delivered",
+    "placed_at": "2026-10-26",
+    "delivered_at": "2026-10-29",
+    "shipping_fee": 9.99,
+    "total": 77.08
+  },
+  {
+    "id": "ORD-00036",
+    "customer_id": "CUS-0043",
+    "status": "delivered",
+    "placed_at": "2026-11-11",
+    "delivered_at": "2026-11-16",
+    "shipping_fee": 9.99,
+    "total": 24.99
+  },
+  {
+    "id": "ORD-00037",
+    "customer_id": "CUS-0043",
+    "status": "delivered",
+    "placed_at": "2026-09-28",
+    "delivered_at": "2026-10-04",
+    "shipping_fee": 9.99,
+    "total": 194.96
+  },
+  {
+    "id": "ORD-00038",
+    "customer_id": "CUS-0030",
+    "status": "delivered",
+    "placed_at": "2026-10-02",
+    "delivered_at": "2026-10-07",
+    "shipping_fee": 5.99,
+    "total": 103.08
+  },
+  {
+    "id": "ORD-00039",
+    "customer_id": "CUS-0006",
+    "status": "delivered",
+    "placed_at": "2026-09-24",
+    "delivered_at": "2026-09-28",
+    "shipping_fee": 9.99,
+    "total": 153.98
+  },
+  {
+    "id": "ORD-00040",
+    "customer_id": "CUS-0003",
+    "status": "delivered",
+    "placed_at": "2026-08-07",
+    "delivered_at": "2026-08-12",
+    "shipping_fee": 0.0,
+    "total": 79.99
+  },
+  {
+    "id": "ORD-00041",
+    "customer_id": "CUS-0026",
+    "status": "delivered",
+    "placed_at": "2026-10-19",
+    "delivered_at": "2026-10-22",
+    "shipping_fee": 5.99,
+    "total": 441.99
+  },
+  {
+    "id": "ORD-00042",
+    "customer_id": "CUS-0036",
+    "status": "delivered",
+    "placed_at": "2026-10-19",
+    "delivered_at": "2026-10-22",
+    "shipping_fee": 0.0,
+    "total": 337.99
+  },
+  {
+    "id": "ORD-00043",
+    "customer_id": "CUS-0040",
+    "status": "delivered",
+    "placed_at": "2026-10-19",
+    "delivered_at": "2026-10-25",
+    "shipping_fee": 0.0,
+    "total": 202.99
+  },
+  {
+    "id": "ORD-00044",
+    "customer_id": "CUS-0049",
+    "status": "delivered",
+    "placed_at": "2026-08-07",
+    "delivered_at": "2026-08-13",
+    "shipping_fee": 9.99,
+    "total": 388.97
+  },
+  {
+    "id": "ORD-00045",
+    "customer_id": "CUS-0005",
+    "status": "delivered",
+    "placed_at": "2026-10-19",
+    "delivered_at": "2026-10-25",
+    "shipping_fee": 9.99,
+    "total": 39.99
+  },
+  {
+    "id": "ORD-00046",
+    "customer_id": "CUS-0010",
+    "status": "delivered",
+    "placed_at": "2026-08-20",
+    "delivered_at": "2026-08-24",
+    "shipping_fee": 5.99,
+    "total": 419.98
+  },
+  {
+    "id": "ORD-00047",
+    "customer_id": "CUS-0027",
+    "status": "delivered",
+    "placed_at": "2026-10-21",
+    "delivered_at": "2026-10-25",
+    "shipping_fee": 9.99,
+    "total": 137.99
+  },
+  {
+    "id": "ORD-00048",
+    "customer_id": "CUS-0025",
+    "status": "delivered",
+    "placed_at": "2026-10-08",
+    "delivered_at": "2026-10-14",
+    "shipping_fee": 5.99,
+    "total": 263.99
+  },
+  {
+    "id": "ORD-00049",
+    "customer_id": "CUS-0031",
+    "status": "cancelled",
+    "placed_at": "2026-07-27",
+    "delivered_at": null,
+    "shipping_fee": 9.99,
+    "total": 187.99
+  },
+  {
+    "id": "ORD-00050",
+    "customer_id": "CUS-0015",
+    "status": "processing",
+    "placed_at": "2026-11-19",
+    "delivered_at": null,
+    "shipping_fee": 5.99,
+    "total": 926.49
+  },
+  {
+    "id": "ORD-00051",
+    "customer_id": "CUS-0009",
+    "status": "delivered",
+    "placed_at": "2026-10-16",
+    "delivered_at": "2026-10-22",
+    "shipping_fee": 0.0,
+    "total": 1874.0
+  },
+  {
+    "id": "ORD-00052",
+    "customer_id": "CUS-0012",
+    "status": "delivered",
+    "placed_at": "2026-09-01",
+    "delivered_at": "2026-09-04",
+    "shipping_fee": 5.99,
+    "total": 354.09
+  },
+  {
+    "id": "ORD-00053",
+    "customer_id": "CUS-0022",
+    "status": "delivered",
+    "placed_at": "2026-11-13",
+    "delivered_at": "2026-11-19",
+    "shipping_fee": 5.99,
+    "total": 224.99
+  },
+  {
+    "id": "ORD-00054",
+    "customer_id": "CUS-0023",
+    "status": "delivered",
+    "placed_at": "2026-08-14",
+    "delivered_at": "2026-08-19",
+    "shipping_fee": 5.99,
+    "total": 288.99
+  },
+  {
+    "id": "ORD-00055",
+    "customer_id": "CUS-0040",
+    "status": "delivered",
+    "placed_at": "2026-10-22",
+    "delivered_at": "2026-10-25",
+    "shipping_fee": 0.0,
+    "total": 129.0
+  },
+  {
+    "id": "ORD-00056",
+    "customer_id": "CUS-0039",
+    "status": "delivered",
+    "placed_at": "2026-10-31",
+    "delivered_at": "2026-11-04",
+    "shipping_fee": 5.99,
+    "total": 417.99
+  },
+  {
+    "id": "ORD-00057",
+    "customer_id": "CUS-0020",
+    "status": "delivered",
+    "placed_at": "2026-09-03",
+    "delivered_at": "2026-09-07",
+    "shipping_fee": 5.99,
+    "total": 94.99
+  },
+  {
+    "id": "ORD-00058",
+    "customer_id": "CUS-0007",
+    "status": "delivered",
+    "placed_at": "2026-09-07",
+    "delivered_at": "2026-09-13",
+    "shipping_fee": 9.99,
+    "total": 73.99
+  },
+  {
+    "id": "ORD-00059",
+    "customer_id": "CUS-0043",
+    "status": "delivered",
+    "placed_at": "2026-08-22",
+    "delivered_at": "2026-08-25",
+    "shipping_fee": 9.99,
+    "total": 787.99
+  },
+  {
+    "id": "ORD-00060",
+    "customer_id": "CUS-0041",
+    "status": "delivered",
+    "placed_at": "2026-10-03",
+    "delivered_at": "2026-10-08",
+    "shipping_fee": 0.0,
+    "total": 502.0
+  },
+  {
+    "id": "ORD-00061",
+    "customer_id": "CUS-0040",
+    "status": "delivered",
+    "placed_at": "2026-07-28",
+    "delivered_at": "2026-08-01",
+    "shipping_fee": 5.99,
+    "total": 30.98
+  },
+  {
+    "id": "ORD-00062",
+    "customer_id": "CUS-0006",
+    "status": "delivered",
+    "placed_at": "2026-08-08",
+    "delivered_at": "2026-08-14",
+    "shipping_fee": 5.99,
+    "total": 109.99
+  },
+  {
+    "id": "ORD-00063",
+    "customer_id": "CUS-0012",
+    "status": "delivered",
+    "placed_at": "2026-10-15",
+    "delivered_at": "2026-10-19",
+    "shipping_fee": 5.99,
+    "total": 1968.99
+  },
+  {
+    "id": "ORD-00064",
+    "customer_id": "CUS-0006",
+    "status": "delivered",
+    "placed_at": "2026-09-18",
+    "delivered_at": "2026-09-23",
+    "shipping_fee": 5.99,
+    "total": 109.99
+  },
+  {
+    "id": "ORD-00065",
+    "customer_id": "CUS-0029",
+    "status": "delivered",
+    "placed_at": "2026-10-20",
+    "delivered_at": "2026-10-26",
+    "shipping_fee": 9.99,
+    "total": 447.99
+  },
+  {
+    "id": "ORD-00066",
+    "customer_id": "CUS-0020",
+    "status": "delivered",
+    "placed_at": "2026-08-10",
+    "delivered_at": "2026-08-13",
+    "shipping_fee": 5.99,
+    "total": 748.49
+  },
+  {
+    "id": "ORD-00067",
+    "customer_id": "CUS-0048",
+    "status": "cancelled",
+    "placed_at": "2026-08-27",
+    "delivered_at": null,
+    "shipping_fee": 5.99,
+    "total": 208.98
+  },
+  {
+    "id": "ORD-00068",
+    "customer_id": "CUS-0008",
+    "status": "delivered",
+    "placed_at": "2026-09-10",
+    "delivered_at": "2026-09-15",
+    "shipping_fee": 9.99,
+    "total": 113.99
+  },
+  {
+    "id": "ORD-00069",
+    "customer_id": "CUS-0047",
+    "status": "delivered",
+    "placed_at": "2026-08-19",
+    "delivered_at": "2026-08-24",
+    "shipping_fee": 0.0,
+    "total": 313.97
+  },
+  {
+    "id": "ORD-00070",
+    "customer_id": "CUS-0024",
+    "status": "delivered",
+    "placed_at": "2026-09-05",
+    "delivered_at": "2026-09-10",
+    "shipping_fee": 0.0,
+    "total": 15.0
+  },
+  {
+    "id": "ORD-00071",
+    "customer_id": "CUS-0041",
+    "status": "delivered",
+    "placed_at": "2026-10-28",
+    "delivered_at": "2026-10-31",
+    "shipping_fee": 9.99,
+    "total": 147.08
+  },
+  {
+    "id": "ORD-00072",
+    "customer_id": "CUS-0004",
+    "status": "delivered",
+    "placed_at": "2026-07-31",
+    "delivered_at": "2026-08-03",
+    "shipping_fee": 0.0,
+    "total": 273.99
+  },
+  {
+    "id": "ORD-00073",
+    "customer_id": "CUS-0010",
+    "status": "delivered",
+    "placed_at": "2026-10-18",
+    "delivered_at": "2026-10-21",
+    "shipping_fee": 0.0,
+    "total": 283.0
+  },
+  {
+    "id": "ORD-00074",
+    "customer_id": "CUS-0036",
+    "status": "cancelled",
+    "placed_at": "2026-08-08",
+    "delivered_at": null,
+    "shipping_fee": 5.99,
+    "total": 134.99
+  },
+  {
+    "id": "ORD-00075",
+    "customer_id": "CUS-0020",
+    "status": "delivered",
+    "placed_at": "2026-08-14",
+    "delivered_at": "2026-08-18",
+    "shipping_fee": 9.99,
+    "total": 406.99
+  },
+  {
+    "id": "ORD-00076",
+    "customer_id": "CUS-0016",
+    "status": "cancelled",
+    "placed_at": "2026-09-08",
+    "delivered_at": null,
+    "shipping_fee": 0.0,
+    "total": 217.99
+  },
+  {
+    "id": "ORD-00077",
+    "customer_id": "CUS-0045",
+    "status": "delivered",
+    "placed_at": "2026-10-28",
+    "delivered_at": "2026-10-31",
+    "shipping_fee": 0.0,
+    "total": 1485.0
+  },
+  {
+    "id": "ORD-00078",
+    "customer_id": "CUS-0045",
+    "status": "delivered",
+    "placed_at": "2026-09-04",
+    "delivered_at": "2026-09-09",
+    "shipping_fee": 0.0,
+    "total": 15.0
+  },
+  {
+    "id": "ORD-00079",
+    "customer_id": "CUS-0028",
+    "status": "delivered",
+    "placed_at": "2026-08-01",
+    "delivered_at": "2026-08-04",
+    "shipping_fee": 9.99,
+    "total": 24.99
+  },
+  {
+    "id": "ORD-00080",
+    "customer_id": "CUS-0005",
+    "status": "delivered",
+    "placed_at": "2026-11-05",
+    "delivered_at": "2026-11-09",
+    "shipping_fee": 9.99,
+    "total": 24.99
+  },
+  {
+    "id": "ORD-00081",
+    "customer_id": "CUS-0045",
+    "status": "delivered",
+    "placed_at": "2026-11-12",
+    "delivered_at": "2026-11-17",
+    "shipping_fee": 9.99,
+    "total": 347.99
+  },
+  {
+    "id": "ORD-00082",
+    "customer_id": "CUS-0028",
+    "status": "delivered",
+    "placed_at": "2026-09-29",
+    "delivered_at": "2026-10-05",
+    "shipping_fee": 5.99,
+    "total": 94.99
+  },
+  {
+    "id": "ORD-00083",
+    "customer_id": "CUS-0049",
+    "status": "delivered",
+    "placed_at": "2026-08-17",
+    "delivered_at": "2026-08-22",
+    "shipping_fee": 0.0,
+    "total": 129.0
+  },
+  {
+    "id": "ORD-00084",
+    "customer_id": "CUS-0038",
+    "status": "delivered",
+    "placed_at": "2026-08-25",
+    "delivered_at": "2026-08-28",
+    "shipping_fee": 0.0,
+    "total": 243.99
+  },
+  {
+    "id": "ORD-00085",
+    "customer_id": "CUS-0011",
+    "status": "delivered",
+    "placed_at": "2026-09-25",
+    "delivered_at": "2026-09-28",
+    "shipping_fee": 5.99,
+    "total": 1137.49
+  },
+  {
+    "id": "ORD-00086",
+    "customer_id": "CUS-0017",
+    "status": "delivered",
+    "placed_at": "2026-10-08",
+    "delivered_at": "2026-10-14",
+    "shipping_fee": 5.99,
+    "total": 1558.08
+  },
+  {
+    "id": "ORD-00087",
+    "customer_id": "CUS-0027",
+    "status": "delivered",
+    "placed_at": "2026-10-09",
+    "delivered_at": "2026-10-15",
+    "shipping_fee": 9.99,
+    "total": 59.97
+  },
+  {
+    "id": "ORD-00088",
+    "customer_id": "CUS-0036",
+    "status": "delivered",
+    "placed_at": "2026-11-13",
+    "delivered_at": "2026-11-18",
+    "shipping_fee": 9.99,
+    "total": 271.09
+  },
+  {
+    "id": "ORD-00089",
+    "customer_id": "CUS-0020",
+    "status": "delivered",
+    "placed_at": "2026-11-03",
+    "delivered_at": "2026-11-09",
+    "shipping_fee": 9.99,
+    "total": 116.09
+  },
+  {
+    "id": "ORD-00090",
+    "customer_id": "CUS-0008",
+    "status": "delivered",
+    "placed_at": "2026-09-10",
+    "delivered_at": "2026-09-16",
+    "shipping_fee": 0.0,
+    "total": 128.0
+  },
+  {
+    "id": "ORD-00091",
+    "customer_id": "CUS-0031",
+    "status": "delivered",
+    "placed_at": "2026-08-29",
+    "delivered_at": "2026-09-04",
+    "shipping_fee": 9.99,
+    "total": 89.97
+  },
+  {
+    "id": "ORD-00092",
+    "customer_id": "CUS-0005",
+    "status": "delivered",
+    "placed_at": "2026-10-19",
+    "delivered_at": "2026-10-23",
+    "shipping_fee": 5.99,
+    "total": 94.99
+  },
+  {
+    "id": "ORD-00093",
+    "customer_id": "CUS-0010",
+    "status": "delivered",
+    "placed_at": "2026-10-15",
+    "delivered_at": "2026-10-20",
+    "shipping_fee": 9.99,
+    "total": 82.09
+  },
+  {
+    "id": "ORD-00094",
+    "customer_id": "CUS-0021",
+    "status": "delivered",
+    "placed_at": "2026-09-23",
+    "delivered_at": "2026-09-29",
+    "shipping_fee": 5.99,
+    "total": 233.97
+  },
+  {
+    "id": "ORD-00095",
+    "customer_id": "CUS-0048",
+    "status": "delivered",
+    "placed_at": "2026-07-31",
+    "delivered_at": "2026-08-04",
+    "shipping_fee": 9.99,
+    "total": 881.49
+  },
+  {
+    "id": "ORD-00096",
+    "customer_id": "CUS-0029",
+    "status": "delivered",
+    "placed_at": "2026-09-20",
+    "delivered_at": "2026-09-26",
+    "shipping_fee": 9.99,
+    "total": 351.08
+  },
+  {
+    "id": "ORD-00097",
+    "customer_id": "CUS-0022",
+    "status": "delivered",
+    "placed_at": "2026-11-07",
+    "delivered_at": "2026-11-13",
+    "shipping_fee": 0.0,
+    "total": 1653.99
+  },
+  {
+    "id": "ORD-00098",
+    "customer_id": "CUS-0016",
+    "status": "delivered",
+    "placed_at": "2026-09-01",
+    "delivered_at": "2026-09-04",
+    "shipping_fee": 5.99,
+    "total": 1187.47
+  },
+  {
+    "id": "ORD-00099",
+    "customer_id": "CUS-0049",
+    "status": "delivered",
+    "placed_at": "2026-08-31",
+    "delivered_at": "2026-09-04",
+    "shipping_fee": 9.99,
+    "total": 752.49
+  },
+  {
+    "id": "ORD-00100",
+    "customer_id": "CUS-0023",
+    "status": "delivered",
+    "placed_at": "2026-08-30",
+    "delivered_at": "2026-09-05",
+    "shipping_fee": 0.0,
+    "total": 82.09
+  },
+  {
+    "id": "ORD-00101",
+    "customer_id": "CUS-0040",
+    "status": "delivered",
+    "placed_at": "2026-10-03",
+    "delivered_at": "2026-10-07",
+    "shipping_fee": 0.0,
+    "total": 872.47
+  },
+  {
+    "id": "ORD-00102",
+    "customer_id": "CUS-0041",
+    "status": "delivered",
+    "placed_at": "2026-08-24",
+    "delivered_at": "2026-08-30",
+    "shipping_fee": 9.99,
+    "total": 267.99
+  },
+  {
+    "id": "ORD-00103",
+    "customer_id": "CUS-0044",
+    "status": "delivered",
+    "placed_at": "2026-10-18",
+    "delivered_at": "2026-10-23",
+    "shipping_fee": 9.99,
+    "total": 228.99
+  },
+  {
+    "id": "ORD-00104",
+    "customer_id": "CUS-0030",
+    "status": "delivered",
+    "placed_at": "2026-09-11",
+    "delivered_at": "2026-09-14",
+    "shipping_fee": 5.99,
+    "total": 198.99
+  },
+  {
+    "id": "ORD-00105",
+    "customer_id": "CUS-0037",
+    "status": "delivered",
+    "placed_at": "2026-08-03",
+    "delivered_at": "2026-08-07",
+    "shipping_fee": 5.99,
+    "total": 262.99
+  },
+  {
+    "id": "ORD-00106",
+    "customer_id": "CUS-0019",
+    "status": "delivered",
+    "placed_at": "2026-10-13",
+    "delivered_at": "2026-10-16",
+    "shipping_fee": 9.99,
+    "total": 109.19
+  },
+  {
+    "id": "ORD-00107",
+    "customer_id": "CUS-0029",
+    "status": "delivered",
+    "placed_at": "2026-08-12",
+    "delivered_at": "2026-08-17",
+    "shipping_fee": 0.0,
+    "total": 223.99
+  },
+  {
+    "id": "ORD-00108",
+    "customer_id": "CUS-0048",
+    "status": "shipped",
+    "placed_at": "2026-11-15",
+    "delivered_at": null,
+    "shipping_fee": 9.99,
+    "total": 153.98
+  },
+  {
+    "id": "ORD-00109",
+    "customer_id": "CUS-0019",
+    "status": "delivered",
+    "placed_at": "2026-09-27",
+    "delivered_at": "2026-10-01",
+    "shipping_fee": 0.0,
+    "total": 443.99
+  },
+  {
+    "id": "ORD-00110",
+    "customer_id": "CUS-0044",
+    "status": "delivered",
+    "placed_at": "2026-08-16",
+    "delivered_at": "2026-08-19",
+    "shipping_fee": 5.99,
+    "total": 85.98
+  },
+  {
+    "id": "ORD-00111",
+    "customer_id": "CUS-0024",
+    "status": "delivered",
+    "placed_at": "2026-08-19",
+    "delivered_at": "2026-08-24",
+    "shipping_fee": 0.0,
+    "total": 72.1
+  },
+  {
+    "id": "ORD-00112",
+    "customer_id": "CUS-0040",
+    "status": "delivered",
+    "placed_at": "2026-08-25",
+    "delivered_at": "2026-08-31",
+    "shipping_fee": 9.99,
+    "total": 266.99
+  },
+  {
+    "id": "ORD-00113",
+    "customer_id": "CUS-0045",
+    "status": "delivered",
+    "placed_at": "2026-07-29",
+    "delivered_at": "2026-08-03",
+    "shipping_fee": 9.99,
+    "total": 137.99
+  },
+  {
+    "id": "ORD-00114",
+    "customer_id": "CUS-0032",
+    "status": "delivered",
+    "placed_at": "2026-10-12",
+    "delivered_at": "2026-10-15",
+    "shipping_fee": 0.0,
+    "total": 42.1
+  },
+  {
+    "id": "ORD-00115",
+    "customer_id": "CUS-0024",
+    "status": "delivered",
+    "placed_at": "2026-11-05",
+    "delivered_at": "2026-11-09",
+    "shipping_fee": 9.99,
+    "total": 1494.99
+  },
+  {
+    "id": "ORD-00116",
+    "customer_id": "CUS-0003",
+    "status": "delivered",
+    "placed_at": "2026-08-26",
+    "delivered_at": "2026-09-01",
+    "shipping_fee": 9.99,
+    "total": 1718.97
+  },
+  {
+    "id": "ORD-00117",
+    "customer_id": "CUS-0035",
+    "status": "delivered",
+    "placed_at": "2026-08-23",
+    "delivered_at": "2026-08-27",
+    "shipping_fee": 5.99,
+    "total": 523.99
+  },
+  {
+    "id": "ORD-00118",
+    "customer_id": "CUS-0043",
+    "status": "delivered",
+    "placed_at": "2026-07-27",
+    "delivered_at": "2026-07-30",
+    "shipping_fee": 5.99,
+    "total": 327.99
+  },
+  {
+    "id": "ORD-00119",
+    "customer_id": "CUS-0009",
+    "status": "cancelled",
+    "placed_at": "2026-10-23",
+    "delivered_at": null,
+    "shipping_fee": 0.0,
+    "total": 389.0
+  },
+  {
+    "id": "ORD-00120",
+    "customer_id": "CUS-0038",
+    "status": "cancelled",
+    "placed_at": "2026-08-11",
+    "delivered_at": null,
+    "shipping_fee": 0.0,
+    "total": 24.99
+  },
+  {
+    "id": "ORD-00121",
+    "customer_id": "CUS-0008",
+    "status": "delivered",
+    "placed_at": "2026-10-23",
+    "delivered_at": "2026-10-28",
+    "shipping_fee": 0.0,
+    "total": 137.09
+  },
+  {
+    "id": "ORD-00122",
+    "customer_id": "CUS-0017",
+    "status": "delivered",
+    "placed_at": "2026-08-27",
+    "delivered_at": "2026-08-31",
+    "shipping_fee": 0.0,
+    "total": 518.0
+  },
+  {
+    "id": "ORD-00123",
+    "customer_id": "CUS-0029",
+    "status": "delivered",
+    "placed_at": "2026-11-13",
+    "delivered_at": "2026-11-19",
+    "shipping_fee": 9.99,
+    "total": 137.99
+  },
+  {
+    "id": "ORD-00124",
+    "customer_id": "CUS-0031",
+    "status": "delivered",
+    "placed_at": "2026-08-12",
+    "delivered_at": "2026-08-15",
+    "shipping_fee": 5.99,
+    "total": 321.09
+  },
+  {
+    "id": "ORD-00125",
+    "customer_id": "CUS-0005",
+    "status": "delivered",
+    "placed_at": "2026-08-03",
+    "delivered_at": "2026-08-09",
+    "shipping_fee": 9.99,
+    "total": 447.99
+  },
+  {
+    "id": "ORD-00126",
+    "customer_id": "CUS-0018",
+    "status": "delivered",
+    "placed_at": "2026-07-27",
+    "delivered_at": "2026-08-01",
+    "shipping_fee": 9.99,
+    "total": 73.99
+  },
+  {
+    "id": "ORD-00127",
+    "customer_id": "CUS-0045",
+    "status": "cancelled",
+    "placed_at": "2026-09-01",
+    "delivered_at": null,
+    "shipping_fee": 9.99,
+    "total": 2287.99
+  },
+  {
+    "id": "ORD-00128",
+    "customer_id": "CUS-0026",
+    "status": "delivered",
+    "placed_at": "2026-11-05",
+    "delivered_at": "2026-11-09",
+    "shipping_fee": 5.99,
+    "total": 1619.99
+  },
+  {
+    "id": "ORD-00129",
+    "customer_id": "CUS-0005",
+    "status": "delivered",
+    "placed_at": "2026-09-27",
+    "delivered_at": "2026-10-02",
+    "shipping_fee": 5.99,
+    "total": 798.99
+  },
+  {
+    "id": "ORD-00130",
+    "customer_id": "CUS-0036",
+    "status": "delivered",
+    "placed_at": "2026-11-08",
+    "delivered_at": "2026-11-11",
+    "shipping_fee": 5.99,
+    "total": 394.99
+  },
+  {
+    "id": "ORD-00131",
+    "customer_id": "CUS-0019",
+    "status": "cancelled",
+    "placed_at": "2026-11-12",
+    "delivered_at": null,
+    "shipping_fee": 9.99,
+    "total": 1269.49
+  },
+  {
+    "id": "ORD-00132",
+    "customer_id": "CUS-0023",
+    "status": "delivered",
+    "placed_at": "2026-09-04",
+    "delivered_at": "2026-09-09",
+    "shipping_fee": 0.0,
+    "total": 258.97
+  },
+  {
+    "id": "ORD-00133",
+    "customer_id": "CUS-0039",
+    "status": "delivered",
+    "placed_at": "2026-08-03",
+    "delivered_at": "2026-08-08",
+    "shipping_fee": 0.0,
+    "total": 307.0
+  },
+  {
+    "id": "ORD-00134",
+    "customer_id": "CUS-0012",
+    "status": "delivered",
+    "placed_at": "2026-07-24",
+    "delivered_at": "2026-07-27",
+    "shipping_fee": 0.0,
+    "total": 404.0
+  },
+  {
+    "id": "ORD-00135",
+    "customer_id": "CUS-0048",
+    "status": "delivered",
+    "placed_at": "2026-07-31",
+    "delivered_at": "2026-08-06",
+    "shipping_fee": 0.0,
+    "total": 42.1
+  },
+  {
+    "id": "ORD-00136",
+    "customer_id": "CUS-0047",
+    "status": "delivered",
+    "placed_at": "2026-09-13",
+    "delivered_at": "2026-09-19",
+    "shipping_fee": 5.99,
+    "total": 474.98
+  },
+  {
+    "id": "ORD-00137",
+    "customer_id": "CUS-0011",
+    "status": "cancelled",
+    "placed_at": "2026-10-09",
+    "delivered_at": null,
+    "shipping_fee": 9.99,
+    "total": 52.09
+  },
+  {
+    "id": "ORD-00138",
+    "customer_id": "CUS-0027",
+    "status": "cancelled",
+    "placed_at": "2026-08-15",
+    "delivered_at": null,
+    "shipping_fee": 0.0,
+    "total": 596.0
+  },
+  {
+    "id": "ORD-00139",
+    "customer_id": "CUS-0003",
+    "status": "delivered",
+    "placed_at": "2026-10-16",
+    "delivered_at": "2026-10-19",
+    "shipping_fee": 5.99,
+    "total": 148.99
+  },
+  {
+    "id": "ORD-00140",
+    "customer_id": "CUS-0050",
+    "status": "delivered",
+    "placed_at": "2026-10-22",
+    "delivered_at": "2026-10-25",
+    "shipping_fee": 0.0,
+    "total": 15.0
+  },
+  {
+    "id": "ORD-00141",
+    "customer_id": "CUS-0048",
+    "status": "delivered",
+    "placed_at": "2026-11-02",
+    "delivered_at": "2026-11-07",
+    "shipping_fee": 5.99,
+    "total": 90.19
+  },
+  {
+    "id": "ORD-00142",
+    "customer_id": "CUS-0028",
+    "status": "delivered",
+    "placed_at": "2026-09-25",
+    "delivered_at": "2026-09-29",
+    "shipping_fee": 5.99,
+    "total": 573.97
+  },
+  {
+    "id": "ORD-00143",
+    "customer_id": "CUS-0037",
+    "status": "shipped",
+    "placed_at": "2026-11-17",
+    "delivered_at": null,
+    "shipping_fee": 5.99,
+    "total": 783.99
+  },
+  {
+    "id": "ORD-00144",
+    "customer_id": "CUS-0045",
+    "status": "delivered",
+    "placed_at": "2026-09-29",
+    "delivered_at": "2026-10-04",
+    "shipping_fee": 0.0,
+    "total": 820.1
+  },
+  {
+    "id": "ORD-00145",
+    "customer_id": "CUS-0038",
+    "status": "delivered",
+    "placed_at": "2026-07-25",
+    "delivered_at": "2026-07-28",
+    "shipping_fee": 5.99,
+    "total": 263.99
+  },
+  {
+    "id": "ORD-00146",
+    "customer_id": "CUS-0005",
+    "status": "delivered",
+    "placed_at": "2026-09-29",
+    "delivered_at": "2026-10-02",
+    "shipping_fee": 5.99,
+    "total": 523.99
+  },
+  {
+    "id": "ORD-00147",
+    "customer_id": "CUS-0017",
+    "status": "delivered",
+    "placed_at": "2026-09-15",
+    "delivered_at": "2026-09-19",
+    "shipping_fee": 5.99,
+    "total": 214.98
+  },
+  {
+    "id": "ORD-00148",
+    "customer_id": "CUS-0030",
+    "status": "delivered",
+    "placed_at": "2026-10-25",
+    "delivered_at": "2026-10-29",
+    "shipping_fee": 9.99,
+    "total": 169.97
+  },
+  {
+    "id": "ORD-00149",
+    "customer_id": "CUS-0029",
+    "status": "cancelled",
+    "placed_at": "2026-08-15",
+    "delivered_at": null,
+    "shipping_fee": 9.99,
+    "total": 487.99
+  },
+  {
+    "id": "ORD-00150",
+    "customer_id": "CUS-0020",
+    "status": "delivered",
+    "placed_at": "2026-11-11",
+    "delivered_at": "2026-11-17",
+    "shipping_fee": 9.99,
+    "total": 67.09
+  },
+  {
+    "id": "ORD-00151",
+    "customer_id": "CUS-0030",
+    "status": "delivered",
+    "placed_at": "2026-09-21",
+    "delivered_at": "2026-09-24",
+    "shipping_fee": 0.0,
+    "total": 143.0
+  },
+  {
+    "id": "ORD-00152",
+    "customer_id": "CUS-0007",
+    "status": "delivered",
+    "placed_at": "2026-09-06",
+    "delivered_at": "2026-09-09",
+    "shipping_fee": 5.99,
+    "total": 961.99
+  },
+  {
+    "id": "ORD-00153",
+    "customer_id": "CUS-0024",
+    "status": "delivered",
+    "placed_at": "2026-08-08",
+    "delivered_at": "2026-08-11",
+    "shipping_fee": 9.99,
+    "total": 383.17
+  },
+  {
+    "id": "ORD-00154",
+    "customer_id": "CUS-0022",
+    "status": "delivered",
+    "placed_at": "2026-10-03",
+    "delivered_at": "2026-10-09",
+    "shipping_fee": 5.99,
+    "total": 137.09
+  },
+  {
+    "id": "ORD-00155",
+    "customer_id": "CUS-0038",
+    "status": "delivered",
+    "placed_at": "2026-11-07",
+    "delivered_at": "2026-11-13",
+    "shipping_fee": 5.99,
+    "total": 174.98
+  },
+  {
+    "id": "ORD-00156",
+    "customer_id": "CUS-0009",
+    "status": "delivered",
+    "placed_at": "2026-08-27",
+    "delivered_at": "2026-09-01",
+    "shipping_fee": 5.99,
+    "total": 972.47
+  },
+  {
+    "id": "ORD-00157",
+    "customer_id": "CUS-0012",
+    "status": "delivered",
+    "placed_at": "2026-08-26",
+    "delivered_at": "2026-08-29",
+    "shipping_fee": 9.99,
+    "total": 1166.48
+  },
+  {
+    "id": "ORD-00158",
+    "customer_id": "CUS-0005",
+    "status": "delivered",
+    "placed_at": "2026-10-23",
+    "delivered_at": "2026-10-29",
+    "shipping_fee": 0.0,
+    "total": 79.99
+  },
+  {
+    "id": "ORD-00159",
+    "customer_id": "CUS-0011",
+    "status": "delivered",
+    "placed_at": "2026-10-13",
+    "delivered_at": "2026-10-16",
+    "shipping_fee": 9.99,
+    "total": 267.98
+  },
+  {
+    "id": "ORD-00160",
+    "customer_id": "CUS-0040",
+    "status": "cancelled",
+    "placed_at": "2026-10-27",
+    "delivered_at": null,
+    "shipping_fee": 0.0,
+    "total": 1746.1
+  },
+  {
+    "id": "ORD-00161",
+    "customer_id": "CUS-0013",
+    "status": "delivered",
+    "placed_at": "2026-10-14",
+    "delivered_at": "2026-10-18",
+    "shipping_fee": 9.99,
+    "total": 39.99
+  },
+  {
+    "id": "ORD-00162",
+    "customer_id": "CUS-0013",
+    "status": "cancelled",
+    "placed_at": "2026-10-03",
+    "delivered_at": null,
+    "shipping_fee": 5.99,
+    "total": 778.49
+  },
+  {
+    "id": "ORD-00163",
+    "customer_id": "CUS-0046",
+    "status": "cancelled",
+    "placed_at": "2026-08-09",
+    "delivered_at": null,
+    "shipping_fee": 0.0,
+    "total": 261.1
+  },
+  {
+    "id": "ORD-00164",
+    "customer_id": "CUS-0029",
+    "status": "delivered",
+    "placed_at": "2026-08-03",
+    "delivered_at": "2026-08-06",
+    "shipping_fee": 5.99,
+    "total": 85.98
+  },
+  {
+    "id": "ORD-00165",
+    "customer_id": "CUS-0023",
+    "status": "delivered",
+    "placed_at": "2026-07-27",
+    "delivered_at": "2026-07-31",
+    "shipping_fee": 5.99,
+    "total": 263.99
+  },
+  {
+    "id": "ORD-00166",
+    "customer_id": "CUS-0006",
+    "status": "delivered",
+    "placed_at": "2026-07-23",
+    "delivered_at": "2026-07-29",
+    "shipping_fee": 0.0,
+    "total": 802.99
+  },
+  {
+    "id": "ORD-00167",
+    "customer_id": "CUS-0009",
+    "status": "delivered",
+    "placed_at": "2026-10-03",
+    "delivered_at": "2026-10-06",
+    "shipping_fee": 5.99,
+    "total": 394.99
+  },
+  {
+    "id": "ORD-00168",
+    "customer_id": "CUS-0006",
+    "status": "shipped",
+    "placed_at": "2026-11-15",
+    "delivered_at": null,
+    "shipping_fee": 5.99,
+    "total": 384.97
+  },
+  {
+    "id": "ORD-00169",
+    "customer_id": "CUS-0008",
+    "status": "shipped",
+    "placed_at": "2026-11-17",
+    "delivered_at": null,
+    "shipping_fee": 5.99,
+    "total": 165.97
+  },
+  {
+    "id": "ORD-00170",
+    "customer_id": "CUS-0027",
+    "status": "delivered",
+    "placed_at": "2026-08-12",
+    "delivered_at": "2026-08-16",
+    "shipping_fee": 5.99,
+    "total": 48.09
+  },
+  {
+    "id": "ORD-00171",
+    "customer_id": "CUS-0039",
+    "status": "cancelled",
+    "placed_at": "2026-08-30",
+    "delivered_at": null,
+    "shipping_fee": 5.99,
+    "total": 133.99
+  },
+  {
+    "id": "ORD-00172",
+    "customer_id": "CUS-0001",
+    "status": "delivered",
+    "placed_at": "2026-09-12",
+    "delivered_at": "2026-09-16",
+    "shipping_fee": 9.99,
+    "total": 39.99
+  },
+  {
+    "id": "ORD-00173",
+    "customer_id": "CUS-0034",
+    "status": "delivered",
+    "placed_at": "2026-09-02",
+    "delivered_at": "2026-09-06",
+    "shipping_fee": 9.99,
+    "total": 153.98
+  },
+  {
+    "id": "ORD-00174",
+    "customer_id": "CUS-0048",
+    "status": "delivered",
+    "placed_at": "2026-09-11",
+    "delivered_at": "2026-09-14",
+    "shipping_fee": 5.99,
+    "total": 790.59
+  },
+  {
+    "id": "ORD-00175",
+    "customer_id": "CUS-0047",
+    "status": "shipped",
+    "placed_at": "2026-11-17",
+    "delivered_at": null,
+    "shipping_fee": 5.99,
+    "total": 394.99
+  },
+  {
+    "id": "ORD-00176",
+    "customer_id": "CUS-0042",
+    "status": "delivered",
+    "placed_at": "2026-08-27",
+    "delivered_at": "2026-09-01",
+    "shipping_fee": 0.0,
+    "total": 389.0
+  },
+  {
+    "id": "ORD-00177",
+    "customer_id": "CUS-0046",
+    "status": "delivered",
+    "placed_at": "2026-10-28",
+    "delivered_at": "2026-11-03",
+    "shipping_fee": 9.99,
+    "total": 89.98
+  },
+  {
+    "id": "ORD-00178",
+    "customer_id": "CUS-0003",
+    "status": "delivered",
+    "placed_at": "2026-08-12",
+    "delivered_at": "2026-08-15",
+    "shipping_fee": 5.99,
+    "total": 48.09
+  },
+  {
+    "id": "ORD-00179",
+    "customer_id": "CUS-0023",
+    "status": "delivered",
+    "placed_at": "2026-10-10",
+    "delivered_at": "2026-10-16",
+    "shipping_fee": 9.99,
+    "total": 67.09
+  },
+  {
+    "id": "ORD-00180",
+    "customer_id": "CUS-0026",
+    "status": "delivered",
+    "placed_at": "2026-08-01",
+    "delivered_at": "2026-08-06",
+    "shipping_fee": 5.99,
+    "total": 783.99
+  },
+  {
+    "id": "ORD-00181",
+    "customer_id": "CUS-0024",
+    "status": "delivered",
+    "placed_at": "2026-08-16",
+    "delivered_at": "2026-08-22",
+    "shipping_fee": 5.99,
+    "total": 443.99
+  },
+  {
+    "id": "ORD-00182",
+    "customer_id": "CUS-0007",
+    "status": "delivered",
+    "placed_at": "2026-07-24",
+    "delivered_at": "2026-07-29",
+    "shipping_fee": 0.0,
+    "total": 895.5
+  },
+  {
+    "id": "ORD-00183",
+    "customer_id": "CUS-0023",
+    "status": "delivered",
+    "placed_at": "2026-11-09",
+    "delivered_at": "2026-11-14",
+    "shipping_fee": 5.99,
+    "total": 1579.99
+  },
+  {
+    "id": "ORD-00184",
+    "customer_id": "CUS-0024",
+    "status": "delivered",
+    "placed_at": "2026-09-23",
+    "delivered_at": "2026-09-28",
+    "shipping_fee": 9.99,
+    "total": 109.19
+  },
+  {
+    "id": "ORD-00185",
+    "customer_id": "CUS-0024",
+    "status": "delivered",
+    "placed_at": "2026-09-15",
+    "delivered_at": "2026-09-18",
+    "shipping_fee": 0.0,
+    "total": 341.09
+  },
+  {
+    "id": "ORD-00186",
+    "customer_id": "CUS-0037",
+    "status": "cancelled",
+    "placed_at": "2026-10-01",
+    "delivered_at": null,
+    "shipping_fee": 0.0,
+    "total": 906.99
+  },
+  {
+    "id": "ORD-00187",
+    "customer_id": "CUS-0048",
+    "status": "delivered",
+    "placed_at": "2026-11-02",
+    "delivered_at": "2026-11-07",
+    "shipping_fee": 5.99,
+    "total": 149.99
+  },
+  {
+    "id": "ORD-00188",
+    "customer_id": "CUS-0046",
+    "status": "delivered",
+    "placed_at": "2026-10-27",
+    "delivered_at": "2026-11-02",
+    "shipping_fee": 9.99,
+    "total": 24.99
+  },
+  {
+    "id": "ORD-00189",
+    "customer_id": "CUS-0029",
+    "status": "delivered",
+    "placed_at": "2026-09-23",
+    "delivered_at": "2026-09-28",
+    "shipping_fee": 9.99,
+    "total": 202.99
+  },
+  {
+    "id": "ORD-00190",
+    "customer_id": "CUS-0011",
+    "status": "delivered",
+    "placed_at": "2026-10-28",
+    "delivered_at": "2026-10-31",
+    "shipping_fee": 9.99,
+    "total": 462.99
+  },
+  {
+    "id": "ORD-00191",
+    "customer_id": "CUS-0009",
+    "status": "delivered",
+    "placed_at": "2026-08-20",
+    "delivered_at": "2026-08-25",
+    "shipping_fee": 9.99,
+    "total": 73.99
+  },
+  {
+    "id": "ORD-00192",
+    "customer_id": "CUS-0020",
+    "status": "delivered",
+    "placed_at": "2026-10-20",
+    "delivered_at": "2026-10-23",
+    "shipping_fee": 5.99,
+    "total": 702.99
+  },
+  {
+    "id": "ORD-00193",
+    "customer_id": "CUS-0044",
+    "status": "delivered",
+    "placed_at": "2026-09-30",
+    "delivered_at": "2026-10-06",
+    "shipping_fee": 5.99,
+    "total": 1007.97
+  },
+  {
+    "id": "ORD-00194",
+    "customer_id": "CUS-0034",
+    "status": "delivered",
+    "placed_at": "2026-09-14",
+    "delivered_at": "2026-09-18",
+    "shipping_fee": 9.99,
+    "total": 292.97
+  },
+  {
+    "id": "ORD-00195",
+    "customer_id": "CUS-0017",
+    "status": "delivered",
+    "placed_at": "2026-10-31",
+    "delivered_at": "2026-11-04",
+    "shipping_fee": 0.0,
+    "total": 518.0
+  },
+  {
+    "id": "ORD-00196",
+    "customer_id": "CUS-0043",
+    "status": "delivered",
+    "placed_at": "2026-10-25",
+    "delivered_at": "2026-10-30",
+    "shipping_fee": 0.0,
+    "total": 103.99
+  },
+  {
+    "id": "ORD-00197",
+    "customer_id": "CUS-0050",
+    "status": "cancelled",
+    "placed_at": "2026-09-01",
+    "delivered_at": null,
+    "shipping_fee": 5.99,
+    "total": 201.09
+  },
+  {
+    "id": "ORD-00198",
+    "customer_id": "CUS-0020",
+    "status": "delivered",
+    "placed_at": "2026-09-07",
+    "delivered_at": "2026-09-10",
+    "shipping_fee": 5.99,
+    "total": 248.97
+  },
+  {
+    "id": "ORD-00199",
+    "customer_id": "CUS-0022",
+    "status": "delivered",
+    "placed_at": "2026-09-22",
+    "delivered_at": "2026-09-25",
+    "shipping_fee": 0.0,
+    "total": 1704.0
+  },
+  {
+    "id": "ORD-00200",
+    "customer_id": "CUS-0033",
+    "status": "delivered",
+    "placed_at": "2026-09-03",
+    "delivered_at": "2026-09-08",
+    "shipping_fee": 9.99,
+    "total": 1141.49
+  }
+]
