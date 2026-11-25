@@ -42,8 +42,10 @@
 - id: POL-009
   title: Where to return factory outlet purchases
   body: >-
-    Items bought at a factory outlet can be returned and refunded only at a factory outlet.
-    They cannot be returned by mail or at a regular store.
+    Items bought at a factory outlet can be returned only to a factory outlet, either in person
+    or by shipping them to the outlet. They cannot be returned at a regular store or through the
+    regular mail returns center. The refund is issued only after the outlet receives the item,
+    so never issue it while the customer is still arranging the return.
 - id: POL-010
   title: Duplicate refunds
   body: >-
