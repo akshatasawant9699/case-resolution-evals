@@ -49,6 +49,7 @@ def test_database_loads_seeds_and_fixtures(db):
     assert query(db, "SELECT COUNT(*) FROM customers")[0][0] == 51
     assert query(db, "SELECT COUNT(*) FROM orders")[0][0] == 201
     assert query(db, "SELECT COUNT(*) FROM refunds")[0][0] == 30
+    assert query(db, "SELECT COUNT(*) FROM returns")[0][0] == 40
 
 
 @pytest.mark.parametrize("module, expected", [
@@ -70,6 +71,7 @@ async def test_get_order_includes_items_and_refunds(db):
     assert result.data["channel"] == "online"
     assert result.data["payment_method"] == "paypal"
     assert result.data["items"][0]["unit_price"] == 15.0
+    assert result.data["returns"] == []
     assert result.data["refunds"] == []
 
 

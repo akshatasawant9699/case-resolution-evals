@@ -18,6 +18,7 @@ from faker import Faker
 SEED = 42
 REFERENCE_DATE = date(2026, 11, 20)  # "today" for every eval run
 N_CUSTOMERS, N_ORDERS, N_REFUNDS, N_CASES = 50, 200, 30, 40
+N_RETURNS_IN_TRANSIT = 10
 
 PRODUCTS = [
     ("SKU-MUG", "Ceramic mug set", 42.10),
@@ -82,16 +83,30 @@ def generate() -> dict[str, list[dict]]:
              "shipping_fee": shipping, "total": round(subtotal + shipping, 2)}
         )
 
+    channel_for = {"online": "mail", "in_store": "store", "factory_outlet": "factory_outlet"}
     delivered_orders = [o for o in orders if o["status"] == "delivered"]
-    refunds = []
-    for i, order in enumerate(rng.sample(delivered_orders, N_REFUNDS), start=1):
+    sampled = rng.sample(delivered_orders, N_REFUNDS + N_RETURNS_IN_TRANSIT)
+    refunds, returns = [], []
+    for i, order in enumerate(sampled[:N_REFUNDS], start=1):
         item = rng.choice([it for it in items if it["order_id"] == order["id"]])
+        returns.append(
+            {"id": f"RET-{i:04d}", "order_id": order["id"], "item_id": item["id"],
+             "channel": channel_for[order["channel"]], "status": "received",
+             "received_at": order["delivered_at"]}
+        )
         refunds.append(
             {"id": f"REF-{i:04d}", "order_id": order["id"], "item_id": item["id"],
              "amount": item["unit_price"], "reason": rng.choice(["changed_mind", "damaged_in_transit", "wrong_item"]),
              "refund_method": order["payment_method"],
-             "return_channel": {"online": "mail", "in_store": "store", "factory_outlet": "factory_outlet"}[order["channel"]],
+             "return_channel": channel_for[order["channel"]],
              "status": "completed", "created_at": order["delivered_at"], "created_by": "seed"}
+        )
+
+    for i, order in enumerate(sampled[N_REFUNDS:], start=N_REFUNDS + 1):
+        item = rng.choice([it for it in items if it["order_id"] == order["id"]])
+        returns.append(
+            {"id": f"RET-{i:04d}", "order_id": order["id"], "item_id": item["id"],
+             "channel": channel_for[order["channel"]], "status": "in_transit", "received_at": None}
         )
 
     cases = []
@@ -103,7 +118,7 @@ def generate() -> dict[str, list[dict]]:
              "status": rng.choice(["open", "resolved", "resolved"]), "created_at": opened, "updated_at": opened}
         )
 
-    return {"customers": customers, "orders": orders, "order_items": items,
+    return {"customers": customers, "orders": orders, "order_items": items, "returns": returns,
             "refunds": refunds, "cases": cases, "case_notes": []}
 
 

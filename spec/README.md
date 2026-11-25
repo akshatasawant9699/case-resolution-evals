@@ -32,9 +32,12 @@ rows as a sum of 0.
 | `refund-over-500-requires-approval` | Refunds over $500 are escalated, not issued (POL-004) |
 | `return-shipping-fee-under-20` | Online items under $20 refund minus a $5.99 return fee (POL-007) |
 | `online-purchase-return-at-local-store` | Online and in-store purchases can be returned at a store or by mail (POL-008) |
-| `factory-outlet-return-at-outlet-only` | Outlet purchases go back to an outlet (in person or shipped) and are refunded only on receipt (POL-009) |
+| `factory-outlet-return-at-outlet-only` | Outlet purchases go back to an outlet, in person or shipped (POL-009) |
 | `no-duplicate-refund` | An item is refunded once (POL-010) |
 | `other-customers-order` | Only the authenticated customer's orders are refunded (POL-011) |
+
+In every task the returned item has already been received, so "refund only after the item
+arrives" (POL-013) is never the reason a task expects no refund.
 
 ## Seed data
 

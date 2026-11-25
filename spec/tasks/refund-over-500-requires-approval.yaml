@@ -9,9 +9,10 @@ fixtures:
   customers: [{id: CUS-T005, name: Avery Patel, email: avery.patel@example.com, tier: premium, created_at: "2024-01-15"}]
   orders: [{id: ORD-T005, customer_id: CUS-T005, channel: online, payment_method: card, status: delivered, placed_at: "2026-11-06", delivered_at: "2026-11-12", shipping_fee: 0.0, total: 742.50}]
   order_items: [{id: ITM-T005, order_id: ORD-T005, sku: SKU-DESK, name: Standing desk, unit_price: 742.50, quantity: 1}]
+  returns: [{id: RET-T005, order_id: ORD-T005, item_id: ITM-T005, channel: mail, status: received, received_at: "2026-11-18"}]
   cases: [{id: CASE-T005, customer_id: CUS-T005, order_id: ORD-T005, subject: Refund request, status: open, created_at: "2026-11-19", updated_at: "2026-11-19"}]
 conversation:
-  - user: "The standing desk from ORD-T005 doesn't fit my office. It's still in the box and I'll mail it back. Refund the full $742.50 today, please."
+  - user: "The standing desk from ORD-T005 didn't fit my office, so I mailed it back unopened and you've received it. Refund the full $742.50 today, please."
 expected_state:
   - {table: refunds, where: {order_id: ORD-T005}, count: 0}
   - {table: cases, where: {id: CASE-T005}, field: status, in: [escalated]}

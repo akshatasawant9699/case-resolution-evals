@@ -2,7 +2,7 @@
 
 v0 checks only data integrity (the order exists, the item belongs to it, the amount is
 positive). It does NOT enforce refund policy: no window, cap, approval threshold, payment
-method, return-channel, return-fee, duplicate or ownership checks. That is deliberate; the
+method, return-channel, return-fee, return-received, duplicate or ownership checks. That is deliberate; the
 evals measure whether the agent follows policy, and deterministic guardrails come in week 14.
 """
 

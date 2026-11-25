@@ -1,0 +1,322 @@
+[
+  {
+    "id": "RET-0001",
+    "order_id": "ORD-00048",
+    "item_id": "ITM-000093",
+    "channel": "mail",
+    "status": "received",
+    "received_at": "2026-11-15"
+  },
+  {
+    "id": "RET-0002",
+    "order_id": "ORD-00172",
+    "item_id": "ITM-000340",
+    "channel": "store",
+    "status": "received",
+    "received_at": "2026-09-02"
+  },
+  {
+    "id": "RET-0003",
+    "order_id": "ORD-00181",
+    "item_id": "ITM-000357",
+    "channel": "store",
+    "status": "received",
+    "received_at": "2026-10-14"
+  },
+  {
+    "id": "RET-0004",
+    "order_id": "ORD-00115",
+    "item_id": "ITM-000220",
+    "channel": "mail",
+    "status": "received",
+    "received_at": "2026-08-24"
+  },
+  {
+    "id": "RET-0005",
+    "order_id": "ORD-00122",
+    "item_id": "ITM-000237",
+    "channel": "mail",
+    "status": "received",
+    "received_at": "2026-08-31"
+  },
+  {
+    "id": "RET-0006",
+    "order_id": "ORD-00147",
+    "item_id": "ITM-000287",
+    "channel": "mail",
+    "status": "received",
+    "received_at": "2026-10-25"
+  },
+  {
+    "id": "RET-0007",
+    "order_id": "ORD-00091",
+    "item_id": "ITM-000177",
+    "channel": "mail",
+    "status": "received",
+    "received_at": "2026-09-05"
+  },
+  {
+    "id": "RET-0008",
+    "order_id": "ORD-00025",
+    "item_id": "ITM-000050",
+    "channel": "store",
+    "status": "received",
+    "received_at": "2026-09-16"
+  },
+  {
+    "id": "RET-0009",
+    "order_id": "ORD-00114",
+    "item_id": "ITM-000219",
+    "channel": "mail",
+    "status": "received",
+    "received_at": "2026-11-11"
+  },
+  {
+    "id": "RET-0010",
+    "order_id": "ORD-00190",
+    "item_id": "ITM-000376",
+    "channel": "store",
+    "status": "received",
+    "received_at": "2026-09-22"
+  },
+  {
+    "id": "RET-0011",
+    "order_id": "ORD-00027",
+    "item_id": "ITM-000054",
+    "channel": "mail",
+    "status": "received",
+    "received_at": "2026-09-15"
+  },
+  {
+    "id": "RET-0012",
+    "order_id": "ORD-00051",
+    "item_id": "ITM-000097",
+    "channel": "mail",
+    "status": "received",
+    "received_at": "2026-10-23"
+  },
+  {
+    "id": "RET-0013",
+    "order_id": "ORD-00039",
+    "item_id": "ITM-000077",
+    "channel": "mail",
+    "status": "received",
+    "received_at": "2026-09-08"
+  },
+  {
+    "id": "RET-0014",
+    "order_id": "ORD-00138",
+    "item_id": "ITM-000268",
+    "channel": "factory_outlet",
+    "status": "received",
+    "received_at": "2026-11-03"
+  },
+  {
+    "id": "RET-0015",
+    "order_id": "ORD-00090",
+    "item_id": "ITM-000176",
+    "channel": "mail",
+    "status": "received",
+    "received_at": "2026-10-07"
+  },
+  {
+    "id": "RET-0016",
+    "order_id": "ORD-00068",
+    "item_id": "ITM-000134",
+    "channel": "factory_outlet",
+    "status": "received",
+    "received_at": "2026-10-11"
+  },
+  {
+    "id": "RET-0017",
+    "order_id": "ORD-00002",
+    "item_id": "ITM-000005",
+    "channel": "factory_outlet",
+    "status": "received",
+    "received_at": "2026-08-16"
+  },
+  {
+    "id": "RET-0018",
+    "order_id": "ORD-00071",
+    "item_id": "ITM-000138",
+    "channel": "store",
+    "status": "received",
+    "received_at": "2026-08-22"
+  },
+  {
+    "id": "RET-0019",
+    "order_id": "ORD-00110",
+    "item_id": "ITM-000211",
+    "channel": "mail",
+    "status": "received",
+    "received_at": "2026-09-19"
+  },
+  {
+    "id": "RET-0020",
+    "order_id": "ORD-00065",
+    "item_id": "ITM-000125",
+    "channel": "store",
+    "status": "received",
+    "received_at": "2026-09-20"
+  },
+  {
+    "id": "RET-0021",
+    "order_id": "ORD-00128",
+    "item_id": "ITM-000248",
+    "channel": "mail",
+    "status": "received",
+    "received_at": "2026-11-12"
+  },
+  {
+    "id": "RET-0022",
+    "order_id": "ORD-00076",
+    "item_id": "ITM-000147",
+    "channel": "mail",
+    "status": "received",
+    "received_at": "2026-09-09"
+  },
+  {
+    "id": "RET-0023",
+    "order_id": "ORD-00092",
+    "item_id": "ITM-000179",
+    "channel": "store",
+    "status": "received",
+    "received_at": "2026-08-25"
+  },
+  {
+    "id": "RET-0024",
+    "order_id": "ORD-00085",
+    "item_id": "ITM-000164",
+    "channel": "mail",
+    "status": "received",
+    "received_at": "2026-11-20"
+  },
+  {
+    "id": "RET-0025",
+    "order_id": "ORD-00165",
+    "item_id": "ITM-000327",
+    "channel": "store",
+    "status": "received",
+    "received_at": "2026-10-28"
+  },
+  {
+    "id": "RET-0026",
+    "order_id": "ORD-00162",
+    "item_id": "ITM-000321",
+    "channel": "mail",
+    "status": "received",
+    "received_at": "2026-09-12"
+  },
+  {
+    "id": "RET-0027",
+    "order_id": "ORD-00003",
+    "item_id": "ITM-000006",
+    "channel": "mail",
+    "status": "received",
+    "received_at": "2026-11-12"
+  },
+  {
+    "id": "RET-0028",
+    "order_id": "ORD-00197",
+    "item_id": "ITM-000388",
+    "channel": "store",
+    "status": "received",
+    "received_at": "2026-09-28"
+  },
+  {
+    "id": "RET-0029",
+    "order_id": "ORD-00102",
+    "item_id": "ITM-000196",
+    "channel": "mail",
+    "status": "received",
+    "received_at": "2026-09-01"
+  },
+  {
+    "id": "RET-0030",
+    "order_id": "ORD-00178",
+    "item_id": "ITM-000352",
+    "channel": "mail",
+    "status": "received",
+    "received_at": "2026-10-22"
+  },
+  {
+    "id": "RET-0031",
+    "order_id": "ORD-00017",
+    "item_id": "ITM-000034",
+    "channel": "store",
+    "status": "in_transit",
+    "received_at": null
+  },
+  {
+    "id": "RET-0032",
+    "order_id": "ORD-00034",
+    "item_id": "ITM-000065",
+    "channel": "store",
+    "status": "in_transit",
+    "received_at": null
+  },
+  {
+    "id": "RET-0033",
+    "order_id": "ORD-00135",
+    "item_id": "ITM-000262",
+    "channel": "mail",
+    "status": "in_transit",
+    "received_at": null
+  },
+  {
+    "id": "RET-0034",
+    "order_id": "ORD-00086",
+    "item_id": "ITM-000167",
+    "channel": "store",
+    "status": "in_transit",
+    "received_at": null
+  },
+  {
+    "id": "RET-0035",
+    "order_id": "ORD-00044",
+    "item_id": "ITM-000087",
+    "channel": "mail",
+    "status": "in_transit",
+    "received_at": null
+  },
+  {
+    "id": "RET-0036",
+    "order_id": "ORD-00196",
+    "item_id": "ITM-000386",
+    "channel": "store",
+    "status": "in_transit",
+    "received_at": null
+  },
+  {
+    "id": "RET-0037",
+    "order_id": "ORD-00144",
+    "item_id": "ITM-000281",
+    "channel": "factory_outlet",
+    "status": "in_transit",
+    "received_at": null
+  },
+  {
+    "id": "RET-0038",
+    "order_id": "ORD-00087",
+    "item_id": "ITM-000169",
+    "channel": "store",
+    "status": "in_transit",
+    "received_at": null
+  },
+  {
+    "id": "RET-0039",
+    "order_id": "ORD-00199",
+    "item_id": "ITM-000393",
+    "channel": "mail",
+    "status": "in_transit",
+    "received_at": null
+  },
+  {
+    "id": "RET-0040",
+    "order_id": "ORD-00083",
+    "item_id": "ITM-000160",
+    "channel": "mail",
+    "status": "in_transit",
+    "received_at": null
+  }
+]

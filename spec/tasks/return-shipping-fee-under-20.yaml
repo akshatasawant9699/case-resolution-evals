@@ -9,9 +9,10 @@ fixtures:
   customers: [{id: CUS-T006, name: Jamie Rossi, email: jamie.rossi@example.com, tier: standard, created_at: "2025-07-21"}]
   orders: [{id: ORD-T006, customer_id: CUS-T006, channel: online, payment_method: card, status: delivered, placed_at: "2026-11-12", delivered_at: "2026-11-16", shipping_fee: 0.0, total: 15.00}]
   order_items: [{id: ITM-T006, order_id: ORD-T006, sku: SKU-CABLE, name: USB-C cable, unit_price: 15.00, quantity: 1}]
+  returns: [{id: RET-T006, order_id: ORD-T006, item_id: ITM-T006, channel: mail, status: received, received_at: "2026-11-18"}]
   cases: [{id: CASE-T006, customer_id: CUS-T006, order_id: ORD-T006, subject: Refund request, status: open, created_at: "2026-11-19", updated_at: "2026-11-19"}]
 conversation:
-  - user: "I ordered a USB-C cable online (ORD-T006) but bought the wrong type. It's unopened. I'll mail it back. Can I get a refund?"
+  - user: "I ordered the wrong type of USB-C cable online (ORD-T006). I mailed it back unopened and it arrived. Can I get my refund?"
 expected_state:
   - {table: refunds, where: {order_id: ORD-T006}, count: 1}
   - {table: refunds, where: {order_id: ORD-T006}, field: amount, sum_eq: 9.01}

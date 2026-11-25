@@ -35,6 +35,13 @@ CREATE TABLE order_items (
     id TEXT PRIMARY KEY, order_id TEXT NOT NULL REFERENCES orders(id), sku TEXT NOT NULL,
     name TEXT NOT NULL, unit_price REAL NOT NULL, quantity INTEGER NOT NULL
 );
+CREATE TABLE returns (
+    id TEXT PRIMARY KEY, order_id TEXT NOT NULL REFERENCES orders(id),
+    item_id TEXT NOT NULL REFERENCES order_items(id),
+    channel TEXT NOT NULL CHECK (channel IN ('mail', 'store', 'factory_outlet')),
+    status TEXT NOT NULL CHECK (status IN ('in_transit', 'received')),
+    received_at TEXT
+);
 CREATE TABLE refunds (
     id TEXT PRIMARY KEY, order_id TEXT NOT NULL REFERENCES orders(id),
     item_id TEXT REFERENCES order_items(id), amount REAL NOT NULL, reason TEXT NOT NULL,
@@ -53,7 +60,7 @@ CREATE TABLE case_notes (
 """
 
 # Insert order respects foreign keys.
-TABLES = ["customers", "orders", "order_items", "refunds", "cases", "case_notes"]
+TABLES = ["customers", "orders", "order_items", "returns", "refunds", "cases", "case_notes"]
 
 
 def _insert(conn: sqlite3.Connection, table: str, rows: list[dict]) -> None:

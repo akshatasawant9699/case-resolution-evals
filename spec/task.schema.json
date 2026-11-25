@@ -31,6 +31,7 @@
         "customers": {"type": "array", "items": {"type": "object"}},
         "orders": {"type": "array", "items": {"type": "object"}},
         "order_items": {"type": "array", "items": {"type": "object"}},
+        "returns": {"type": "array", "items": {"type": "object"}},
         "refunds": {"type": "array", "items": {"type": "object"}},
         "cases": {"type": "array", "items": {"type": "object"}},
         "case_notes": {"type": "array", "items": {"type": "object"}}
@@ -75,7 +76,7 @@
       "additionalProperties": false,
       "required": ["table", "where"],
       "properties": {
-        "table": {"enum": ["customers", "orders", "order_items", "refunds", "cases", "case_notes"]},
+        "table": {"enum": ["customers", "orders", "order_items", "returns", "refunds", "cases", "case_notes"]},
         "where": {"type": "object", "description": "Column equality filters."},
         "count": {"type": "integer", "minimum": 0},
         "count_gte": {"type": "integer", "minimum": 0},

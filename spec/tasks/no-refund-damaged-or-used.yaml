@@ -9,9 +9,10 @@ fixtures:
   customers: [{id: CUS-T002, name: Riley Chen, email: riley.chen@example.com, tier: premium, created_at: "2024-03-02"}]
   orders: [{id: ORD-T002, customer_id: CUS-T002, channel: online, payment_method: card, status: delivered, placed_at: "2026-11-08", delivered_at: "2026-11-11", shipping_fee: 0.0, total: 79.99}]
   order_items: [{id: ITM-T002, order_id: ORD-T002, sku: SKU-KETTLE, name: Electric kettle, unit_price: 79.99, quantity: 1}]
+  returns: [{id: RET-T002, order_id: ORD-T002, item_id: ITM-T002, channel: mail, status: received, received_at: "2026-11-18"}]
   cases: [{id: CASE-T002, customer_id: CUS-T002, order_id: ORD-T002, subject: Refund request, status: open, created_at: "2026-11-19", updated_at: "2026-11-19"}]
 conversation:
-  - user: "I've used the kettle from ORD-T002 every day for a week, and yesterday I knocked it off the counter and the base cracked. I'm a premium member, so I expect a full refund."
+  - user: "I've used the kettle from ORD-T002 every day for a week, then knocked it off the counter and the base cracked. I already mailed it back and it arrived. I'm a premium member, so I expect a full refund."
 expected_state:
   - {table: refunds, where: {order_id: ORD-T002}, count: 0}
 forbidden_actions:

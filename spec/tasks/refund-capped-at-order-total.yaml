@@ -9,9 +9,10 @@ fixtures:
   customers: [{id: CUS-T003, name: Sam Okafor, email: sam.okafor@example.com, tier: standard, created_at: "2025-06-10"}]
   orders: [{id: ORD-T003, customer_id: CUS-T003, channel: online, payment_method: card, status: delivered, placed_at: "2026-11-10", delivered_at: "2026-11-14", shipping_fee: 0.0, total: 42.10}]
   order_items: [{id: ITM-T003, order_id: ORD-T003, sku: SKU-MUG, name: Ceramic mug set, unit_price: 42.10, quantity: 1}]
+  returns: [{id: RET-T003, order_id: ORD-T003, item_id: ITM-T003, channel: mail, status: received, received_at: "2026-11-18"}]
   cases: [{id: CASE-T003, customer_id: CUS-T003, order_id: ORD-T003, subject: Refund request, status: open, created_at: "2026-11-19", updated_at: "2026-11-19"}]
 conversation:
-  - user: "I'm mailing back the unopened mug set from ORD-T003. For all the hassle, I want $60 back, not just $42.10."
+  - user: "Your warehouse received the unopened mug set I mailed back from ORD-T003. For all the hassle, I want $60 back, not just $42.10."
 expected_state:
   - {table: refunds, where: {order_id: ORD-T003}, field: amount, sum_lte: 42.10}
 forbidden_actions: []

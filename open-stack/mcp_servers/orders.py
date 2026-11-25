@@ -18,11 +18,13 @@ def build_server(db_path: str) -> FastMCP:
 
     @mcp.tool
     def get_order(order_id: str) -> dict:
-        """Get one order by ID, including its line items and any refunds already issued.
+        """Get one order by ID, including its line items, returns and any refunds already issued.
 
         Returns the order's customer_id, channel (online, in_store or factory_outlet),
         payment_method, status (processing, shipped, delivered or cancelled), placed_at (the
-        purchase date), delivered_at, shipping_fee, total, items and refunds.
+        purchase date), delivered_at, shipping_fee, total, items, returns and refunds. Each return
+        has the item_id, channel (mail, store or factory_outlet) and status (in_transit or
+        received).
         """
         with connect(db_path) as conn:
             order = row_to_dict(conn.execute("SELECT * FROM orders WHERE id = ?", (order_id,)).fetchone())
@@ -30,6 +32,8 @@ def build_server(db_path: str) -> FastMCP:
                 raise ToolError(f"Order {order_id} not found.")
             order["items"] = [row_to_dict(r) for r in conn.execute(
                 "SELECT * FROM order_items WHERE order_id = ? ORDER BY id", (order_id,))]
+            order["returns"] = [row_to_dict(r) for r in conn.execute(
+                "SELECT * FROM returns WHERE order_id = ? ORDER BY id", (order_id,))]
             order["refunds"] = [row_to_dict(r) for r in conn.execute(
                 "SELECT * FROM refunds WHERE order_id = ? ORDER BY created_at, id", (order_id,))]
         return order

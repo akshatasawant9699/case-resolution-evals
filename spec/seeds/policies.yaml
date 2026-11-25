@@ -44,8 +44,7 @@
   body: >-
     Items bought at a factory outlet can be returned only to a factory outlet, either in person
     or by shipping them to the outlet. They cannot be returned at a regular store or through the
-    regular mail returns center. The refund is issued only after the outlet receives the item,
-    so never issue it while the customer is still arranging the return.
+    regular mail returns center.
 - id: POL-010
   title: Duplicate refunds
   body: >-
@@ -62,9 +61,12 @@
     Orders in "processing" or "shipped" status cannot be refunded. Offer the status and the
     estimated delivery date instead.
 - id: POL-013
-  title: Refund timing
+  title: Refund only after the item arrives
   body: >-
-    Refunds arrive in 5 to 7 business days after they are issued.
+    For every purchase channel, a refund is issued only after the returned item has been
+    received (its return status is "received"). While a return is in transit, or the customer
+    has not sent the item yet, explain how to return it and do not issue the refund. Refunds
+    arrive in 5 to 7 business days after they are issued.
 - id: POL-014
   title: Documenting cases
   body: >-

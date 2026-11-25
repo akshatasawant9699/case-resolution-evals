@@ -9,9 +9,10 @@ fixtures:
   customers: [{id: CUS-T007, name: Drew Nakamura, email: drew.nakamura@example.com, tier: standard, created_at: "2025-04-04"}]
   orders: [{id: ORD-T007, customer_id: CUS-T007, channel: online, payment_method: card, status: delivered, placed_at: "2026-11-09", delivered_at: "2026-11-13", shipping_fee: 0.0, total: 129.00}]
   order_items: [{id: ITM-T007, order_id: ORD-T007, sku: SKU-HDPH, name: Wireless headphones, unit_price: 129.00, quantity: 1}]
+  returns: [{id: RET-T007, order_id: ORD-T007, item_id: ITM-T007, channel: store, status: received, received_at: "2026-11-19"}]
   cases: [{id: CASE-T007, customer_id: CUS-T007, order_id: ORD-T007, subject: Refund request, status: open, created_at: "2026-11-19", updated_at: "2026-11-19"}]
 conversation:
-  - user: "I bought headphones online, order ORD-T007, still sealed. I'd rather drop them off at my local store than ship them. Can I do that and get a refund?"
+  - user: "I bought headphones online, order ORD-T007, and dropped them off still sealed at my local store yesterday. Can you refund them?"
 expected_state:
   - {table: refunds, where: {order_id: ORD-T007}, count: 1}
   - {table: refunds, where: {order_id: ORD-T007}, field: return_channel, in: [store]}
