@@ -132,19 +132,41 @@ def build_graph(toolbox: Toolbox, complete: CompletionFn):
     return graph.compile()
 
 
+class ChatSession:
+    """A live conversation with the agent: `reply = await session.send("...")`.
+
+    Used by the eval harness (scripted turns), the terminal chat and the demo notebook.
+    """
+
+    def __init__(self, db_path: str, customer_id: str, case_id: str, complete: CompletionFn | None = None):
+        self.db_path = db_path
+        self.complete = complete or litellm_completion()
+        self.state: AgentState = {
+            "messages": [{"role": "system", "content": SYSTEM_PROMPT.format(
+                today=REFERENCE_DATE, customer_id=customer_id, case_id=case_id)}],
+            "tool_calls": [], "usage": [],
+        }
+
+    async def __aenter__(self) -> "ChatSession":
+        self._toolbox = await Toolbox(self.db_path).__aenter__()
+        self._graph = build_graph(self._toolbox, self.complete)
+        return self
+
+    async def __aexit__(self, *exc) -> None:
+        await self._toolbox.__aexit__(*exc)
+
+    async def send(self, text: str) -> str:
+        """Send one customer message; return the agent's reply. Tool calls land in state."""
+        self.state["messages"] = [*self.state["messages"], {"role": "user", "content": text}]
+        # No checkpointer, so each invoke starts empty and the reducers rebuild the state.
+        self.state = await self._graph.ainvoke(self.state, {"recursion_limit": 2 * MAX_MODEL_CALLS_PER_TURN + 1})
+        return self.state["messages"][-1].get("content", "")
+
+
 async def run_conversation(db_path: str, customer_id: str, case_id: str, user_turns: list[str],
                            complete: CompletionFn | None = None) -> AgentState:
     """Play scripted customer turns against the agent and return the final state."""
-    complete = complete or litellm_completion()
-    state: AgentState = {
-        "messages": [{"role": "system", "content": SYSTEM_PROMPT.format(
-            today=REFERENCE_DATE, customer_id=customer_id, case_id=case_id)}],
-        "tool_calls": [], "usage": [],
-    }
-    async with Toolbox(db_path) as toolbox:
-        graph = build_graph(toolbox, complete)
+    async with ChatSession(db_path, customer_id, case_id, complete) as session:
         for turn in user_turns:
-            state["messages"] = [*state["messages"], {"role": "user", "content": turn}]
-            # No checkpointer, so each invoke starts empty and the reducers rebuild the state.
-            state = await graph.ainvoke(state, {"recursion_limit": 2 * MAX_MODEL_CALLS_PER_TURN + 1})
-    return state
+            await session.send(turn)
+    return session.state

@@ -16,7 +16,7 @@ import json
 from datetime import datetime, timezone
 from pathlib import Path
 
-from agent import v0
+from agent.backends import make_completion
 from evals.harness import load_tasks, run_trial
 
 RUNS_DIR = Path(__file__).resolve().parents[1] / "runs"
@@ -32,13 +32,7 @@ async def main() -> None:
     args = parser.parse_args()
 
     tasks = load_tasks(args.task)
-    if args.backend == "gateway":
-        from agent.gateway import DEFAULT_GATEWAY_MODEL, gateway_completion
-        args.model = args.model or DEFAULT_GATEWAY_MODEL
-        complete = gateway_completion(args.model)
-    else:
-        args.model = args.model or v0.DEFAULT_MODEL
-        complete = v0.litellm_completion(args.model)
+    complete, args.model = make_completion(args.backend, args.model)
     stamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
     out = args.out or RUNS_DIR / f"v0-{stamp}.jsonl"
     out.parent.mkdir(parents=True, exist_ok=True)

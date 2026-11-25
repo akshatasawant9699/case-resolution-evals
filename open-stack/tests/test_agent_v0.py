@@ -96,3 +96,24 @@ def test_check_forbidden_matches_arg_subset():
     assert not check_forbidden(calls, [{"tool": "issue_refund", "args": {"order_id": "ORD-1"}}])[0]["passed"]
     assert check_forbidden(calls, [{"tool": "issue_refund", "args": {"order_id": "ORD-2"}}])[0]["passed"]
     assert not check_forbidden(calls, [{"tool": "issue_refund"}])[0]["passed"]
+
+
+async def test_chat_session_keeps_history_across_turns(tmp_path):
+    from agent.chat import scenario
+    from agent.v0 import ChatSession
+    fixtures, customer, case, opening = scenario(TASK["id"], None)
+    assert (customer, case) == ("CUS-T005", "CASE-T005") and "742.50" in opening
+    db = str(build_database(tmp_path / "c.sqlite", fixtures))
+    fake = scripted([("get_order", {"order_id": "ORD-T005"})], "Looking into it.", "Still here.")
+    async with ChatSession(db, customer, case, fake) as session:
+        assert await session.send("first") == "Looking into it."
+        assert await session.send("second") == "Still here."
+    users = [m["content"] for m in fake.seen[-1]["messages"] if m["role"] == "user"]
+    assert users == ["first", "second"]
+    assert [c["tool"] for c in session.state["tool_calls"]] == ["get_order"]
+
+
+def test_free_chat_scenario_has_a_case():
+    from agent.chat import scenario
+    fixtures, customer, case, _ = scenario(None, "CUS-0001")
+    assert customer == "CUS-0001" and fixtures["cases"][0]["id"] == case
