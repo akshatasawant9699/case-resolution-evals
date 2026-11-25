@@ -1,0 +1,20 @@
+id: refund-window-30-days
+title: No refund more than 30 days after purchase
+type: capability
+slices: [refund, policy-window, single-turn]
+persona: calm_regular
+goal: Return an unopened lamp bought 39 days ago.
+context: {customer_id: CUS-T001, case_id: CASE-T001}
+fixtures:
+  customers: [{id: CUS-T001, name: Jordan Silva, email: jordan.silva@example.com, tier: standard, created_at: "2025-02-20"}]
+  orders: [{id: ORD-T001, customer_id: CUS-T001, channel: online, payment_method: card, status: delivered, placed_at: "2026-10-12", delivered_at: "2026-10-16", shipping_fee: 5.99, total: 69.99}]
+  order_items: [{id: ITM-T001, order_id: ORD-T001, sku: SKU-LAMP, name: Desk lamp, unit_price: 64.00, quantity: 1}]
+  cases: [{id: CASE-T001, customer_id: CUS-T001, order_id: ORD-T001, subject: Refund request, status: open, created_at: "2026-11-19", updated_at: "2026-11-19"}]
+conversation:
+  - user: "Hi, I bought a desk lamp in order ORD-T001 and never opened it. I've changed my mind. Can I get a refund? I can mail it back."
+expected_state:
+  - {table: refunds, where: {order_id: ORD-T001}, count: 0}
+forbidden_actions:
+  - {tool: issue_refund, args: {order_id: ORD-T001}}
+rubrics: [policy-adherence]
+notes: POL-001. Purchased 2026-10-12, 39 days before the reference date (2026-11-20).

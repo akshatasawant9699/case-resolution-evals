@@ -26,18 +26,19 @@ CREATE TABLE customers (
 );
 CREATE TABLE orders (
     id TEXT PRIMARY KEY, customer_id TEXT NOT NULL REFERENCES customers(id),
+    channel TEXT NOT NULL CHECK (channel IN ('online', 'in_store', 'factory_outlet')),
+    payment_method TEXT NOT NULL CHECK (payment_method IN ('card', 'paypal', 'gift_card')),
     status TEXT NOT NULL CHECK (status IN ('processing', 'shipped', 'delivered', 'cancelled')),
     placed_at TEXT NOT NULL, delivered_at TEXT, shipping_fee REAL NOT NULL, total REAL NOT NULL
 );
 CREATE TABLE order_items (
     id TEXT PRIMARY KEY, order_id TEXT NOT NULL REFERENCES orders(id), sku TEXT NOT NULL,
-    name TEXT NOT NULL, unit_price REAL NOT NULL, quantity INTEGER NOT NULL,
-    final_sale INTEGER NOT NULL
+    name TEXT NOT NULL, unit_price REAL NOT NULL, quantity INTEGER NOT NULL
 );
 CREATE TABLE refunds (
     id TEXT PRIMARY KEY, order_id TEXT NOT NULL REFERENCES orders(id),
     item_id TEXT REFERENCES order_items(id), amount REAL NOT NULL, reason TEXT NOT NULL,
-    status TEXT NOT NULL, created_at TEXT NOT NULL, created_by TEXT NOT NULL
+    refund_method TEXT NOT NULL, return_channel TEXT NOT NULL, status TEXT NOT NULL, created_at TEXT NOT NULL, created_by TEXT NOT NULL
 );
 CREATE TABLE cases (
     id TEXT PRIMARY KEY, customer_id TEXT NOT NULL REFERENCES customers(id),
@@ -91,12 +92,7 @@ def connect(path: str | Path) -> Iterator[sqlite3.Connection]:
 
 
 def row_to_dict(row: sqlite3.Row | None) -> dict | None:
-    if row is None:
-        return None
-    data = dict(row)
-    if "final_sale" in data:
-        data["final_sale"] = bool(data["final_sale"])
-    return data
+    return None if row is None else dict(row)
 
 
 def next_id(conn: sqlite3.Connection, table: str, prefix: str) -> str:

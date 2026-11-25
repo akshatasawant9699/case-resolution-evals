@@ -46,3 +46,25 @@ def test_policy_articles():
     policies = yaml.safe_load((SPEC / "seeds" / "policies.yaml").read_text())
     assert len(policies) == 15
     assert len({p["id"] for p in policies}) == 15
+
+
+@pytest.mark.parametrize("path", TASK_FILES, ids=lambda p: p.stem)
+def test_task_fixtures_load_and_checks_reference_real_columns(path, tmp_path):
+    import sqlite3
+
+    from mcp_servers.db import build_database
+
+    task = yaml.safe_load(path.read_text())
+    db = build_database(tmp_path / "t.sqlite", task.get("fixtures"))
+    with sqlite3.connect(db) as conn:
+        assert conn.execute("SELECT 1 FROM customers WHERE id = ?", (task["context"]["customer_id"],)).fetchone()
+        assert conn.execute("SELECT 1 FROM cases WHERE id = ?", (task["context"]["case_id"],)).fetchone()
+        for check in task["expected_state"]:
+            columns = {row[1] for row in conn.execute(f"PRAGMA table_info({check['table']})")}
+            referenced = set(check["where"]) | ({check["field"]} if "field" in check else set())
+            assert referenced <= columns, f"unknown columns {referenced - columns} in {check['table']}"
+
+
+def test_task_ids_are_unique():
+    ids = [yaml.safe_load(p.read_text())["id"] for p in TASK_FILES]
+    assert len(ids) == len(set(ids))

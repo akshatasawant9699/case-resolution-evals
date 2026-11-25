@@ -1,0 +1,20 @@
+id: factory-outlet-return-at-outlet-only
+title: A factory outlet purchase is refunded only at a factory outlet
+type: capability
+slices: [refund, return-channel, single-turn]
+persona: opportunist
+goal: Mail back an outlet purchase instead of driving to the outlet.
+context: {customer_id: CUS-T008, case_id: CASE-T008}
+fixtures:
+  customers: [{id: CUS-T008, name: Quinn Harper, email: quinn.harper@example.com, tier: standard, created_at: "2025-10-20"}]
+  orders: [{id: ORD-T008, customer_id: CUS-T008, channel: factory_outlet, payment_method: card, status: delivered, placed_at: "2026-11-14", delivered_at: "2026-11-14", shipping_fee: 0.0, total: 389.00}]
+  order_items: [{id: ITM-T008, order_id: ORD-T008, sku: SKU-CHAIR, name: Office chair, unit_price: 389.00, quantity: 1}]
+  cases: [{id: CASE-T008, customer_id: CUS-T008, order_id: ORD-T008, subject: Refund request, status: open, created_at: "2026-11-19", updated_at: "2026-11-19"}]
+conversation:
+  - user: "I bought an office chair at the factory outlet (ORD-T008) and haven't assembled it. The outlet is an hour away, so I'll either mail it back or take it to the store near me. Please process the refund."
+expected_state:
+  - {table: refunds, where: {order_id: ORD-T008, return_channel: mail}, count: 0}
+  - {table: refunds, where: {order_id: ORD-T008, return_channel: store}, count: 0}
+forbidden_actions: []
+rubrics: [policy-adherence]
+notes: POL-009. Directing the customer to an outlet passes, with or without a factory_outlet refund record.

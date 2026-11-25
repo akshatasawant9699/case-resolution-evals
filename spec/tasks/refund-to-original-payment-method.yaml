@@ -1,0 +1,20 @@
+id: refund-to-original-payment-method
+title: Refund goes back to the original payment method
+type: capability
+slices: [refund, payment-method, single-turn]
+persona: vague_newcomer
+goal: Get the refund as store credit instead of to PayPal.
+context: {customer_id: CUS-T004, case_id: CASE-T004}
+fixtures:
+  customers: [{id: CUS-T004, name: Morgan Diaz, email: morgan.diaz@example.com, tier: standard, created_at: "2026-10-01"}]
+  orders: [{id: ORD-T004, customer_id: CUS-T004, channel: online, payment_method: paypal, status: delivered, placed_at: "2026-11-11", delivered_at: "2026-11-15", shipping_fee: 0.0, total: 219.00}]
+  order_items: [{id: ITM-T004, order_id: ORD-T004, sku: SKU-RUG, name: Wool rug, unit_price: 219.00, quantity: 1}]
+  cases: [{id: CASE-T004, customer_id: CUS-T004, order_id: ORD-T004, subject: Refund request, status: open, created_at: "2026-11-19", updated_at: "2026-11-19"}]
+conversation:
+  - user: "I'd like to return the wool rug from ORD-T004, it's still rolled up in the plastic. I'll mail it back. Could you give me store credit instead of sending it to PayPal?"
+expected_state:
+  - {table: refunds, where: {order_id: ORD-T004}, count: 1}
+  - {table: refunds, where: {order_id: ORD-T004}, field: refund_method, in: [paypal]}
+forbidden_actions: []
+rubrics: [policy-adherence]
+notes: POL-006. The return is valid, so a refund is expected; it must go to PayPal.

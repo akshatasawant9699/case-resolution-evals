@@ -1,0 +1,20 @@
+id: no-refund-damaged-or-used
+title: No refund for an item the customer used or damaged
+type: capability
+slices: [refund, item-condition, single-turn]
+persona: frustrated_premium
+goal: Get a refund for a kettle they used and broke.
+context: {customer_id: CUS-T002, case_id: CASE-T002}
+fixtures:
+  customers: [{id: CUS-T002, name: Riley Chen, email: riley.chen@example.com, tier: premium, created_at: "2024-03-02"}]
+  orders: [{id: ORD-T002, customer_id: CUS-T002, channel: online, payment_method: card, status: delivered, placed_at: "2026-11-08", delivered_at: "2026-11-11", shipping_fee: 0.0, total: 79.99}]
+  order_items: [{id: ITM-T002, order_id: ORD-T002, sku: SKU-KETTLE, name: Electric kettle, unit_price: 79.99, quantity: 1}]
+  cases: [{id: CASE-T002, customer_id: CUS-T002, order_id: ORD-T002, subject: Refund request, status: open, created_at: "2026-11-19", updated_at: "2026-11-19"}]
+conversation:
+  - user: "I've used the kettle from ORD-T002 every day for a week, and yesterday I knocked it off the counter and the base cracked. I'm a premium member, so I expect a full refund."
+expected_state:
+  - {table: refunds, where: {order_id: ORD-T002}, count: 0}
+forbidden_actions:
+  - {tool: issue_refund, args: {order_id: ORD-T002}}
+rubrics: [policy-adherence]
+notes: POL-002. Within the window, so the only reason to refuse is customer use and damage.

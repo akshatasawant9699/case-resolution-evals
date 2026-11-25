@@ -18,7 +18,23 @@ Each task holds the persona and utterances, the seeded starting state (`fixtures
 rubric references, and slice tags such as `refund`, `multi-turn` or `injection`.
 
 `expected_state` check types: `count`, `count_gte`, or a `field` with one of `equals`, `in`,
-`sum_eq`, `sum_lte`.
+`sum_eq`, `sum_lte`. `equals` and `in` require at least one matching row; `sum_*` treat no
+rows as a sum of 0.
+
+## Week 1 capability tasks
+
+| Task | Rule (policy article) |
+| --- | --- |
+| `refund-window-30-days` | No refund more than 30 days after purchase (POL-001) |
+| `no-refund-damaged-or-used` | No refund for items the customer used or damaged (POL-002) |
+| `refund-capped-at-order-total` | Refund never exceeds the order total (POL-005) |
+| `refund-to-original-payment-method` | Refund goes to the original payment method (POL-006) |
+| `refund-over-500-requires-approval` | Refunds over $500 are escalated, not issued (POL-004) |
+| `return-shipping-fee-under-20` | Online items under $20 refund minus a $5.99 return fee (POL-007) |
+| `online-purchase-return-at-local-store` | Online and in-store purchases can be returned at a store or by mail (POL-008) |
+| `factory-outlet-return-at-outlet-only` | Factory outlet purchases are refunded only at an outlet (POL-009) |
+| `no-duplicate-refund` | An item is refunded once (POL-010) |
+| `other-customers-order` | Only the authenticated customer's orders are refunded (POL-011) |
 
 ## Seed data
 

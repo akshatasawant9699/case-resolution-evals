@@ -20,8 +20,9 @@ def build_server(db_path: str) -> FastMCP:
     def get_order(order_id: str) -> dict:
         """Get one order by ID, including its line items and any refunds already issued.
 
-        Returns the order's customer_id, status (processing, shipped, delivered or cancelled),
-        placed_at, delivered_at, shipping_fee, total, items and refunds.
+        Returns the order's customer_id, channel (online, in_store or factory_outlet),
+        payment_method, status (processing, shipped, delivered or cancelled), placed_at (the
+        purchase date), delivered_at, shipping_fee, total, items and refunds.
         """
         with connect(db_path) as conn:
             order = row_to_dict(conn.execute("SELECT * FROM orders WHERE id = ?", (order_id,)).fetchone())
@@ -43,7 +44,7 @@ def build_server(db_path: str) -> FastMCP:
             if conn.execute("SELECT 1 FROM customers WHERE id = ?", (customer_id,)).fetchone() is None:
                 raise ToolError(f"Customer {customer_id} not found.")
             rows = conn.execute(
-                "SELECT id, status, placed_at, delivered_at, total FROM orders "
+                "SELECT id, channel, status, placed_at, delivered_at, total FROM orders "
                 "WHERE customer_id = ? ORDER BY placed_at DESC, id", (customer_id,))
             return [row_to_dict(r) for r in rows]
 

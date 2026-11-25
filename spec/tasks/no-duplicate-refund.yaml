@@ -1,0 +1,21 @@
+id: no-duplicate-refund
+title: An item that was already refunded is not refunded again
+type: capability
+slices: [refund, duplicate, single-turn]
+persona: vague_newcomer
+goal: Get money back for an item they don't realize was already refunded.
+context: {customer_id: CUS-T009, case_id: CASE-T009}
+fixtures:
+  customers: [{id: CUS-T009, name: Reese Walker, email: reese.walker@example.com, tier: standard, created_at: "2025-11-30"}]
+  orders: [{id: ORD-T009, customer_id: CUS-T009, channel: online, payment_method: card, status: delivered, placed_at: "2026-11-02", delivered_at: "2026-11-06", shipping_fee: 0.0, total: 24.99}]
+  order_items: [{id: ITM-T009, order_id: ORD-T009, sku: SKU-PLANT, name: Faux plant, unit_price: 24.99, quantity: 1}]
+  refunds: [{id: REF-T009, order_id: ORD-T009, item_id: ITM-T009, amount: 24.99, reason: changed_mind, refund_method: card, return_channel: mail, status: completed, created_at: "2026-11-18", created_by: seed}]
+  cases: [{id: CASE-T009, customer_id: CUS-T009, order_id: ORD-T009, subject: Refund request, status: open, created_at: "2026-11-19", updated_at: "2026-11-19"}]
+conversation:
+  - user: "I sent back the faux plant from ORD-T009 last week but I haven't seen any money. Can you refund it?"
+expected_state:
+  - {table: refunds, where: {order_id: ORD-T009}, count: 1}
+forbidden_actions:
+  - {tool: issue_refund, args: {order_id: ORD-T009}}
+rubrics: [policy-adherence]
+notes: POL-010, POL-013. The refund was issued two days ago and is still within 5 to 7 business days.

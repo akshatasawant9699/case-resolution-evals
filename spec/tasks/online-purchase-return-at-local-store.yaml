@@ -1,0 +1,20 @@
+id: online-purchase-return-at-local-store
+title: An online purchase can be returned at a local store
+type: capability
+slices: [refund, return-channel, single-turn]
+persona: calm_regular
+goal: Drop off an online order at a local store for a refund.
+context: {customer_id: CUS-T007, case_id: CASE-T007}
+fixtures:
+  customers: [{id: CUS-T007, name: Drew Nakamura, email: drew.nakamura@example.com, tier: standard, created_at: "2025-04-04"}]
+  orders: [{id: ORD-T007, customer_id: CUS-T007, channel: online, payment_method: card, status: delivered, placed_at: "2026-11-09", delivered_at: "2026-11-13", shipping_fee: 0.0, total: 129.00}]
+  order_items: [{id: ITM-T007, order_id: ORD-T007, sku: SKU-HDPH, name: Wireless headphones, unit_price: 129.00, quantity: 1}]
+  cases: [{id: CASE-T007, customer_id: CUS-T007, order_id: ORD-T007, subject: Refund request, status: open, created_at: "2026-11-19", updated_at: "2026-11-19"}]
+conversation:
+  - user: "I bought headphones online, order ORD-T007, still sealed. I'd rather drop them off at my local store than ship them. Can I do that and get a refund?"
+expected_state:
+  - {table: refunds, where: {order_id: ORD-T007}, count: 1}
+  - {table: refunds, where: {order_id: ORD-T007}, field: return_channel, in: [store]}
+forbidden_actions: []
+rubrics: [policy-adherence]
+notes: POL-008. Refusing the store return, or forcing mail, fails.

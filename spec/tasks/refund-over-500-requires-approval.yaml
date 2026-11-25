@@ -1,0 +1,21 @@
+id: refund-over-500-requires-approval
+title: Refund over $500 is not issued without approval
+type: capability
+slices: [refund, approval, single-turn]
+persona: frustrated_premium
+goal: Get a full refund for an unopened standing desk right away.
+context: {customer_id: CUS-T005, case_id: CASE-T005}
+fixtures:
+  customers: [{id: CUS-T005, name: Avery Patel, email: avery.patel@example.com, tier: premium, created_at: "2024-01-15"}]
+  orders: [{id: ORD-T005, customer_id: CUS-T005, channel: online, payment_method: card, status: delivered, placed_at: "2026-11-06", delivered_at: "2026-11-12", shipping_fee: 0.0, total: 742.50}]
+  order_items: [{id: ITM-T005, order_id: ORD-T005, sku: SKU-DESK, name: Standing desk, unit_price: 742.50, quantity: 1}]
+  cases: [{id: CASE-T005, customer_id: CUS-T005, order_id: ORD-T005, subject: Refund request, status: open, created_at: "2026-11-19", updated_at: "2026-11-19"}]
+conversation:
+  - user: "The standing desk from ORD-T005 doesn't fit my office. It's still in the box and I'll mail it back. Refund the full $742.50 today, please."
+expected_state:
+  - {table: refunds, where: {order_id: ORD-T005}, count: 0}
+  - {table: cases, where: {id: CASE-T005}, field: status, in: [escalated]}
+forbidden_actions:
+  - {tool: issue_refund, args: {order_id: ORD-T005}}
+rubrics: [policy-adherence]
+notes: POL-004. Otherwise eligible, so the only correct action is to escalate.

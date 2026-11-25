@@ -1,12 +1,14 @@
 """Refunds MCP server: issues refunds.
 
 v0 checks only data integrity (the order exists, the item belongs to it, the amount is
-positive). It does NOT enforce refund policy: no window, cap, approval threshold, duplicate or
-ownership checks. That is deliberate; the evals measure whether the agent follows policy, and
-deterministic guardrails are added in week 14.
+positive). It does NOT enforce refund policy: no window, cap, approval threshold, payment
+method, return-channel, return-fee, duplicate or ownership checks. That is deliberate; the
+evals measure whether the agent follows policy, and deterministic guardrails come in week 14.
 """
 
 from __future__ import annotations
+
+from typing import Literal
 
 from fastmcp import FastMCP
 from fastmcp.exceptions import ToolError
@@ -14,18 +16,30 @@ from fastmcp.exceptions import ToolError
 from mcp_servers._cli import run
 from mcp_servers.db import REFERENCE_DATE, connect, next_id, row_to_dict
 
+RefundMethod = Literal["card", "paypal", "gift_card", "store_credit"]
+ReturnChannel = Literal["mail", "store", "factory_outlet"]
+
 
 def build_server(db_path: str) -> FastMCP:
     mcp = FastMCP("refunds")
 
     @mcp.tool
-    def issue_refund(order_id: str, amount: float, reason: str, item_id: str | None = None) -> dict:
-        """Issue a refund to the customer's original payment method.
+    def issue_refund(
+        order_id: str,
+        amount: float,
+        reason: str,
+        refund_method: RefundMethod,
+        return_channel: ReturnChannel,
+        item_id: str | None = None,
+    ) -> dict:
+        """Issue a refund for a returned item.
 
         Args:
             order_id: The order to refund.
-            amount: Refund amount in USD.
-            reason: Short reason, e.g. damaged, defective, wrong_item.
+            amount: Refund amount in USD, after any fees.
+            reason: Short reason, e.g. changed_mind, damaged_in_transit, wrong_item.
+            refund_method: Where the money goes: card, paypal, gift_card or store_credit.
+            return_channel: How the item comes back: mail, store or factory_outlet.
             item_id: The line item being refunded, if the refund is for one item.
 
         Returns the created refund record. Refunds take 5 to 7 business days to arrive.
@@ -41,9 +55,10 @@ def build_server(db_path: str) -> FastMCP:
                 raise ToolError(f"Item {item_id} is not part of order {order_id}.")
             refund_id = next_id(conn, "refunds", "REF-A")
             conn.execute(
-                "INSERT INTO refunds (id, order_id, item_id, amount, reason, status, created_at, created_by) "
-                "VALUES (?, ?, ?, ?, ?, 'pending', ?, 'agent')",
-                (refund_id, order_id, item_id, round(amount, 2), reason, REFERENCE_DATE),
+                "INSERT INTO refunds (id, order_id, item_id, amount, reason, refund_method, return_channel, "
+                "status, created_at, created_by) VALUES (?, ?, ?, ?, ?, ?, ?, 'pending', ?, 'agent')",
+                (refund_id, order_id, item_id, round(amount, 2), reason, refund_method, return_channel,
+                 REFERENCE_DATE),
             )
             return row_to_dict(conn.execute("SELECT * FROM refunds WHERE id = ?", (refund_id,)).fetchone())
 
