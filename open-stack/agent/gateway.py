@@ -3,10 +3,13 @@
 Reads the gateway from the environment Claude Code already uses:
 
     ANTHROPIC_BEDROCK_BASE_URL   gateway base URL
-    ANTHROPIC_CUSTOM_HEADERS     auth headers, one "Name: value" per line
+    ANTHROPIC_CUSTOM_HEADERS     extra headers, one "Name: value" per line
     ANTHROPIC_DEFAULT_OPUS_MODEL Bedrock model ID (default us.anthropic.claude-opus-5-5)
+    GATEWAY_API_KEY              the key, if set; otherwise the output of Claude Code's
+                                 apiKeyHelper command (~/.claude/settings.json)
 
-Header values are secrets: they are sent to the gateway and never logged, traced or stored.
+The key and header values are secrets: they are sent to the gateway and never logged,
+traced or stored.
 The agent speaks OpenAI-style messages; this module converts to and from the Anthropic
 Messages format that Bedrock's InvokeModel expects.
 """
@@ -17,6 +20,8 @@ import asyncio
 import json
 import os
 import ssl
+import subprocess
+from pathlib import Path
 
 import httpx
 import truststore
@@ -84,14 +89,32 @@ def from_anthropic(resp: dict, model: str) -> tuple[dict, dict]:
     return assistant, {"input_tokens": tokens_in, "output_tokens": tokens_out, "cost_usd": cost}
 
 
+CLAUDE_SETTINGS = Path("~/.claude/settings.json").expanduser()
+
+
+def gateway_api_key() -> str:
+    """GATEWAY_API_KEY, or the output of Claude Code's apiKeyHelper. Never logged."""
+    if os.environ.get("GATEWAY_API_KEY"):
+        return os.environ["GATEWAY_API_KEY"]
+    helper = json.loads(CLAUDE_SETTINGS.read_text()).get("apiKeyHelper") if CLAUDE_SETTINGS.exists() else None
+    if not helper:
+        raise SystemExit("No gateway key: set GATEWAY_API_KEY or configure apiKeyHelper in Claude Code.")
+    out = subprocess.run(helper, shell=True, capture_output=True, text=True, timeout=120)
+    key = out.stdout.strip()
+    if out.returncode != 0 or not key:
+        raise SystemExit(f"apiKeyHelper failed (exit {out.returncode}); no key was returned.")
+    return key
+
+
 def ssl_context() -> ssl.SSLContext:
     """Trust what the OS trusts (e.g. a corporate CA in the macOS keychain), not just certifi.
 
-    SSL_CERT_FILE, if set, is added on top.
+    SSL_CERT_FILE and NODE_EXTRA_CA_CERTS (Claude Code's CA file), if set, are added on top.
     """
     ctx = truststore.SSLContext(ssl.PROTOCOL_TLS_CLIENT)
-    if os.environ.get("SSL_CERT_FILE"):
-        ctx.load_verify_locations(os.environ["SSL_CERT_FILE"])
+    for var in ("SSL_CERT_FILE", "NODE_EXTRA_CA_CERTS"):
+        if os.environ.get(var) and Path(os.environ[var]).is_file():
+            ctx.load_verify_locations(os.environ[var])
     return ctx
 
 
@@ -102,6 +125,7 @@ def gateway_completion(model: str = DEFAULT_GATEWAY_MODEL, max_tokens: int = 409
         raise SystemExit("ANTHROPIC_BEDROCK_BASE_URL is not set; the gateway backend needs it.")
     url = f"{base.rstrip('/')}/model/{model}/invoke"
     headers = {**parse_headers(os.environ.get("ANTHROPIC_CUSTOM_HEADERS", "")),
+               "authorization": f"Bearer {gateway_api_key()}",
                "content-type": "application/json"}
 
     verify = ssl_context()

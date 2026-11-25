@@ -36,3 +36,18 @@ def test_round_trip_with_parallel_tool_results():
     assert assistant["content"] == "Checking."
     assert json.loads(assistant["tool_calls"][0]["function"]["arguments"]) == {"customer_id": "C1"}
     assert usage == {"input_tokens": 1000, "output_tokens": 100, "cost_usd": 0.0075}
+
+
+def test_api_key_prefers_env_then_helper(tmp_path, monkeypatch):
+    import pytest
+    from agent import gateway
+    monkeypatch.setenv("GATEWAY_API_KEY", "from-env")
+    assert gateway.gateway_api_key() == "from-env"
+    monkeypatch.delenv("GATEWAY_API_KEY")
+    settings = tmp_path / "settings.json"
+    settings.write_text(json.dumps({"apiKeyHelper": "echo from-helper"}))
+    monkeypatch.setattr(gateway, "CLAUDE_SETTINGS", settings)
+    assert gateway.gateway_api_key() == "from-helper"
+    settings.write_text(json.dumps({"apiKeyHelper": "exit 3"}))
+    with pytest.raises(SystemExit, match="exit 3"):
+        gateway.gateway_api_key()
