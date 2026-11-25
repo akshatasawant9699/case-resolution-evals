@@ -20,7 +20,7 @@ uv run pytest
 | Server | Tools |
 | --- | --- |
 | `orders` | `get_order(order_id)`, `list_orders(customer_id)` |
-| `refunds` | `issue_refund(order_id, amount, reason, item_id=None)` |
+| `refunds` | `issue_refund(order_id, amount, reason, refund_method, return_channel, item_id=None)` |
 | `crm` | `update_case(case_id, status)`, `add_case_note(case_id, body)` |
 
 In v0 the tools only check that the data makes sense (the order exists, the item belongs to
@@ -32,4 +32,21 @@ uv run python -m mcp_servers.db --out .data/cases.sqlite         # seeds -> SQLi
 uv run python -m mcp_servers.orders --db .data/cases.sqlite      # stdio server (also refunds, crm)
 ```
 
-Default model: `anthropic/claude-opus-5-5` via LiteLLM (override with `AGENT_MODEL`).
+## Agent v0 and the eval run
+
+`agent/v0.py` is a LangGraph tool loop (model -> tools -> model) with all five MCP tools and a
+three-sentence prompt (today's date, the customer ID, the case ID). It has no policy knowledge
+and no checks, so it is expected to fail several tasks; each failure drives a later change.
+
+```bash
+export ANTHROPIC_API_KEY=...
+uv run python -m evals.run                    # each task once -> runs/v0-<timestamp>.jsonl
+uv run python -m evals.run --trials 3 --task no-duplicate-refund
+```
+
+Each trial gets a fresh database (seeds plus task fixtures), plays the task's conversation,
+then checks `expected_state` and `forbidden_actions`. A JSONL line holds the task id, pass/fail,
+every check with its actual value, the tool calls, the full message history, and token usage
+and cost. `runs/` is git-ignored.
+
+Default model: `anthropic/claude-opus-5-5` via LiteLLM (override with `--model` or `AGENT_MODEL`).
