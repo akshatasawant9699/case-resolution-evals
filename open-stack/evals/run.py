@@ -3,8 +3,9 @@
     uv run python -m evals.run                      # every task, 1 trial
     uv run python -m evals.run --trials 3 --task no-duplicate-refund
 
-Needs a model API key for LiteLLM (e.g. ANTHROPIC_API_KEY). Override the model with
---model or AGENT_MODEL.
+Backends:
+  --backend litellm (default)  needs a provider key, e.g. ANTHROPIC_API_KEY; model from --model/AGENT_MODEL
+  --backend gateway            reuses Claude Code's Bedrock gateway (see agent/gateway.py)
 """
 
 from __future__ import annotations
@@ -25,12 +26,19 @@ async def main() -> None:
     parser = argparse.ArgumentParser(description="Run spec tasks against agent v0.")
     parser.add_argument("--trials", type=int, default=1)
     parser.add_argument("--task", action="append", help="Task id; repeat for several. Default: all.")
-    parser.add_argument("--model", default=v0.DEFAULT_MODEL)
+    parser.add_argument("--backend", choices=["litellm", "gateway"], default="litellm")
+    parser.add_argument("--model", help="Default: AGENT_MODEL for litellm, the Bedrock Opus ID for gateway.")
     parser.add_argument("--out", type=Path)
     args = parser.parse_args()
 
     tasks = load_tasks(args.task)
-    complete = v0.litellm_completion(args.model)
+    if args.backend == "gateway":
+        from agent.gateway import DEFAULT_GATEWAY_MODEL, gateway_completion
+        args.model = args.model or DEFAULT_GATEWAY_MODEL
+        complete = gateway_completion(args.model)
+    else:
+        args.model = args.model or v0.DEFAULT_MODEL
+        complete = v0.litellm_completion(args.model)
     stamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
     out = args.out or RUNS_DIR / f"v0-{stamp}.jsonl"
     out.parent.mkdir(parents=True, exist_ok=True)

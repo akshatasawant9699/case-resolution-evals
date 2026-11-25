@@ -42,6 +42,9 @@ and no checks, so it is expected to fail several tasks; each failure drives a la
 export ANTHROPIC_API_KEY=...
 uv run python -m evals.run                    # each task once -> runs/v0-<timestamp>.jsonl
 uv run python -m evals.run --trials 3 --task no-duplicate-refund
+
+# Or reuse Claude Code's Bedrock gateway (no separate key; see agent/gateway.py)
+uv run python -m evals.run --backend gateway
 ```
 
 Each trial gets a fresh database (seeds plus task fixtures), plays the task's conversation,
