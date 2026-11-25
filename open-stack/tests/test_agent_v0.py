@@ -117,3 +117,21 @@ def test_free_chat_scenario_has_a_case():
     from agent.chat import scenario
     fixtures, customer, case, _ = scenario(None, "CUS-0001")
     assert customer == "CUS-0001" and fixtures["cases"][0]["id"] == case
+
+
+async def test_run_suite_runs_in_parallel_and_writes_traces(tmp_path):
+    import asyncio
+    import time
+    from evals.run import run_suite
+
+    async def slow(messages, tools):
+        await asyncio.sleep(0.3)
+        return {"role": "assistant", "content": "ok"}, {"input_tokens": 1, "output_tokens": 1, "cost_usd": 0.0}
+
+    tasks = load_tasks()[:4]
+    seen = []
+    start = time.perf_counter()
+    results = await run_suite(tasks, 1, slow, "fake", tmp_path / "t.jsonl", concurrency=4, on_result=seen.append)
+    assert time.perf_counter() - start < 1.0, "4 trials of 0.3s should overlap"
+    assert [r["task_id"] for r in results] == [t["id"] for t in tasks]
+    assert len(seen) == 4 and len((tmp_path / "t.jsonl").read_text().splitlines()) == 4
