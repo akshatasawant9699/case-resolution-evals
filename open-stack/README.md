@@ -47,6 +47,20 @@ uv run python -m evals.run --trials 3 --task no-duplicate-refund
 uv run python -m evals.run --backend gateway
 ```
 
+### Try it yourself
+
+```bash
+# Terminal chat: a task's scenario, or any seeded customer. /state shows what changed.
+uv run python -m agent.chat --task refund-over-500-requires-approval
+uv run python -m agent.chat --customer CUS-0001
+
+# Demo notebook: pick a scenario, chat, inspect the database, grade, review traces
+uv run --group demo jupyter lab notebooks/demo_v0.ipynb
+```
+
+Both use the gateway by default; pass `--backend litellm` (chat) or set `BACKEND = "litellm"`
+(notebook) to use `ANTHROPIC_API_KEY` instead.
+
 Each trial gets a fresh database (seeds plus task fixtures), plays the task's conversation,
 then checks `expected_state` and `forbidden_actions`. A JSONL line holds the task id, pass/fail,
 every check with its actual value, the tool calls, the full message history, and token usage
