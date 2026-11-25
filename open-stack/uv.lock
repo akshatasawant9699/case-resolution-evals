@@ -324,6 +324,7 @@ dependencies = [
     { name = "langgraph" },
     { name = "litellm" },
     { name = "pyyaml" },
+    { name = "truststore" },
 ]
 
 [package.dev-dependencies]
@@ -340,6 +341,7 @@ requires-dist = [
     { name = "langgraph", specifier = ">=0.6" },
     { name = "litellm", specifier = ">=1.75" },
     { name = "pyyaml", specifier = ">=6" },
+    { name = "truststore", specifier = ">=0.10.5" },
 ]
 
 [package.metadata.requires-dev]

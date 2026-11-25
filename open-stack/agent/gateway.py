@@ -16,8 +16,10 @@ from __future__ import annotations
 import asyncio
 import json
 import os
+import ssl
 
 import httpx
+import truststore
 
 from agent.v0 import CompletionFn
 
@@ -82,6 +84,17 @@ def from_anthropic(resp: dict, model: str) -> tuple[dict, dict]:
     return assistant, {"input_tokens": tokens_in, "output_tokens": tokens_out, "cost_usd": cost}
 
 
+def ssl_context() -> ssl.SSLContext:
+    """Trust what the OS trusts (e.g. a corporate CA in the macOS keychain), not just certifi.
+
+    SSL_CERT_FILE, if set, is added on top.
+    """
+    ctx = truststore.SSLContext(ssl.PROTOCOL_TLS_CLIENT)
+    if os.environ.get("SSL_CERT_FILE"):
+        ctx.load_verify_locations(os.environ["SSL_CERT_FILE"])
+    return ctx
+
+
 def gateway_completion(model: str = DEFAULT_GATEWAY_MODEL, max_tokens: int = 4096,
                        attempts: int = 4) -> CompletionFn:
     base = os.environ.get("ANTHROPIC_BEDROCK_BASE_URL")
@@ -91,9 +104,11 @@ def gateway_completion(model: str = DEFAULT_GATEWAY_MODEL, max_tokens: int = 409
     headers = {**parse_headers(os.environ.get("ANTHROPIC_CUSTOM_HEADERS", "")),
                "content-type": "application/json"}
 
+    verify = ssl_context()
+
     async def complete(messages: list[dict], tools: list[dict]) -> tuple[dict, dict]:
         body = {**to_anthropic(messages, tools), "max_tokens": max_tokens}
-        async with httpx.AsyncClient(timeout=300) as client:
+        async with httpx.AsyncClient(timeout=300, verify=verify) as client:
             for attempt in range(attempts):
                 r = await client.post(url, headers=headers, json=body)
                 if r.status_code not in RETRY_STATUSES or attempt == attempts - 1:

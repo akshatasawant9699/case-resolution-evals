@@ -43,7 +43,7 @@ async def main() -> None:
     out = args.out or RUNS_DIR / f"v0-{stamp}.jsonl"
     out.parent.mkdir(parents=True, exist_ok=True)
 
-    passed = total = 0
+    passed = total = errors = 0
     cost = 0.0
     with out.open("w") as f:
         for task in tasks:
@@ -55,10 +55,12 @@ async def main() -> None:
                 total += 1
                 cost += result["usage"]["cost_usd"]
                 failed = [c["check"] for c in result["checks"] if not c["passed"]]
-                mark = "PASS" if result["passed"] else "FAIL"
+                errors += result["error"] is not None
+                mark = "PASS" if result["passed"] else "ERROR" if result["error"] else "FAIL"
                 detail = result["error"] or "; ".join(failed)
                 print(f"{mark}  {task['id']} #{trial}" + (f"  {detail}" if detail else ""))
-    print(f"\n{passed}/{total} trials passed, ${cost:.4f}. Traces: {out}")
+    note = f" ({errors} errored: not a valid measurement of the agent)" if errors else ""
+    print(f"\n{passed}/{total} trials passed{note}, ${cost:.4f}. Traces: {out}")
 
 
 if __name__ == "__main__":
