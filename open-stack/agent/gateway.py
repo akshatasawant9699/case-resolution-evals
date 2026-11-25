@@ -4,7 +4,7 @@ Reads the gateway from the environment Claude Code already uses:
 
     ANTHROPIC_BEDROCK_BASE_URL   gateway base URL
     ANTHROPIC_CUSTOM_HEADERS     extra headers, one "Name: value" per line
-    ANTHROPIC_DEFAULT_OPUS_MODEL Bedrock model ID (default us.anthropic.claude-opus-5-5)
+    GATEWAY_MODEL                gateway model name (default claude-opus-5-5)
     GATEWAY_API_KEY              the key, if set; otherwise the output of Claude Code's
                                  apiKeyHelper command (~/.claude/settings.json)
 
@@ -28,7 +28,9 @@ import truststore
 
 from agent.v0 import CompletionFn
 
-DEFAULT_GATEWAY_MODEL = os.environ.get("ANTHROPIC_DEFAULT_OPUS_MODEL", "us.anthropic.claude-opus-5-5")
+# The gateway's own model names (e.g. claude-opus-5-5), not Bedrock IDs; Claude Code maps
+# between them with modelOverrides.
+DEFAULT_GATEWAY_MODEL = os.environ.get("GATEWAY_MODEL", "claude-opus-5-5")
 RETRY_STATUSES = {429, 500, 502, 503, 504, 529}
 
 # USD per million tokens (input, output), for the cost column in traces only.
