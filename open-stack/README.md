@@ -58,6 +58,9 @@ uv run python -m agent.chat --customer CUS-0001
 uv run --group demo jupyter lab notebooks/demo_v0.ipynb
 ```
 
+New to the notebook? [notebooks/README.md](notebooks/README.md) explains every step in plain
+language, with the results of a real run.
+
 Both use the gateway by default; pass `--backend litellm` (chat) or set `BACKEND = "litellm"`
 (notebook) to use `ANTHROPIC_API_KEY` instead.
 
